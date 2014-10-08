@@ -1,9 +1,9 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'blog';
-$user = 'root';
-$pass = '';
+$host = 'mysql51-87.perso';
+$dbname = 'alexnaudiim';
+$user = 'alexnaudiim';
+$pass = 'MarlinNauda';
 
 
 try{
