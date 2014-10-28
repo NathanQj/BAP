@@ -1,6 +1,6 @@
 <?php
 
-require('config/db.php');
+require('config/config.php');
 require('config/session.php');
 
 if (isset($_POST['username']) && !empty($_POST['username'])
@@ -11,7 +11,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 
 	// on ne sélectionne que les personnes dont le username
 	// correspond à celui qui a été entré dans le formulaire
-	$request = $db->prepare('SELECT id, username, password FROM author WHERE username=:username');
+	$request = $db->prepare('SELECT id, username, password FROM users WHERE username=:username');
 	
 
 	$request->execute(
@@ -37,10 +37,11 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 	// if : username ou pass incorrect
 	echo 'Pseudo et/ou mot de passe incorrects';
 }
-?>
 
-<form action="login.php" method="post">
-	<input type="text" name="username" placeholder="Pseudo"><br/>
-	<input type="password" name="password" placeholder="Password"><br/>
-	<input type="submit" value="Connexion" />
-</form>
+/******************************** 
+			VIEW 
+********************************/
+include 'view/_header.html';
+include 'view/_menu.html';
+include 'view/login.html';
+include 'view/_footer.html';

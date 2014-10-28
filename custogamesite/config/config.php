@@ -1,16 +1,15 @@
 <?php
 
-$host = 'mysql51-87.perso';
-$dbname = 'alexnaudiim';
-$user = 'alexnaudiim';
-$pass = 'MarlinNauda';
+$host = 'localhost';
+$db_name = 'alexnaudiim'; // à remplir avec le nom de la BDD
+$user = 'root';
+$password= '';
 
 
 try{
-	$db = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+	$db = new PDO("mysql:dbname=".$db_name.";host=".$host, $user, $password);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-catch(Exception $e)
-{
-    echo 'Erreur : '.$e->getMessage().'<br />';
-    echo 'N° : '.$e->getCode();
+catch(PDOException $e){
+	echo 'Error while connecting : ' . $e->getMessage();
 }
