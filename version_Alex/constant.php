@@ -1,0 +1,14 @@
+<?php
+/*
+if(!isset($_SESSION['accessGranted']))
+{
+	header("location:checkaccess.php");
+	die();
+}
+if($_SESSION['accessGranted']!=true)
+{
+	header("location:checkaccess.php");
+	die();
+}
+*/
+?>
