@@ -14,6 +14,6 @@ require('config/config.php');
 			VIEW 
 ********************************/
 include 'view/_header.html';
-include 'view/_menu.html';
+include 'view/_menu.php';
 include 'view/cgu.html';
 include 'view/_footer.html';

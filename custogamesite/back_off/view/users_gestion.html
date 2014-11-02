@@ -1,0 +1,24 @@
+<?php
+
+$result = $db->query('SELECT * FROM users WHERE user_role=1');
+	while ($datas = $result->fetch())
+	{
+	?>
+		<p>
+		<strong>Profil</strong> : <?php echo $datas['username']; ?><br/>
+
+		Experience : <?php echo $datas['xp']; ?><br/>
+		Lycée : <?php echo $datas['lycee']; ?><br/>
+		Classe : <?php echo $datas['classe']; ?><br/>
+		Age : <?php echo $datas['age']; ?><br/>
+		Email : <em><?php echo $datas['email']; ?></em>
+		</p>
+		<div>
+			<a href="delete_user.php?id=<?php echo $datas['id']; ?>" class="button">Supprimer le compte</a>
+		</div>
+		<br/>
+	<?php
+	}
+
+$result->closeCursor(); // Termine le traitement de la requête
+?>

@@ -22,10 +22,9 @@ function utilisateur_est_connecte() {
 }
 
 function user_is_admin() {
-	if(utilisateur_est_connecte()){
-		if($_SESSION['username'] == 'Custorial'){
-			
-			return true;
-		}	
+
+	if($_SESSION['username'] == 'Custorial'){
+		
+		return true;
 	}
 }

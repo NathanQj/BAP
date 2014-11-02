@@ -8,14 +8,14 @@ require('config/session.php');
 /******************************** 
 			PROCESS 
 ********************************/
-//si l'utilisateur n'est pas connecté
-if (!utilisateur_est_connecte()){ 
 
 	//si l'utilisateur valide le formulaire
-	if(isset($_POST) && !empty($_POST)){
+	if(isset($_POST) && !empty($_POST))
+	{
 		
 		//si le format de l'adresse mail est correct
-		if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == true){
+		if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == true)
+		{
 			
 			if (isset($_POST['first_name']) && !empty($_POST['first_name'])
 				&& isset($_POST['last_name']) && !empty($_POST['last_name'])
@@ -23,8 +23,6 @@ if (!utilisateur_est_connecte()){
 				&& isset($_POST['password']) && !empty($_POST['password'])
 				&& isset($_POST['passverif']) && !empty($_POST['passverif'])
 				&& isset($_POST['email']) && !empty($_POST['email'])
-				&& isset($_POST['sexe']) && !empty($_POST['sexe'])
-				&& isset($_POST['age']) && !empty($_POST['age'])
 				&& isset($_POST['lycee']) && !empty($_POST['lycee'])
 				&& isset($_POST['classe']) && !empty($_POST['classe']))
 			{
@@ -39,29 +37,31 @@ if (!utilisateur_est_connecte()){
 	                	if($_POST['email']==$_POST['mailverif'])
 	                	{
 
-							session_unset();
-
-							$request = $db->prepare('INSERT INTO users (first_name, last_name, username, password, email, sexe, age, lycee, classe, user_registered) 
-														VALUES (:first_name, :last_name, :username, :password, :email, :sexe, :age, :lycee, :classe, now())');
-
+							$request = $db->prepare('UPDATE users 
+														SET first_name = :first_name,
+															last_name = :last_name,
+															username = :username,
+															password = :password, 
+															email = :email, 
+															lycee = :lycee, 
+															classe = :classe 
+																WHERE username = :username');
 							$request->execute(
 								array(
 									'first_name' => $_POST['first_name'],
-									'last_name' => $_POST['last_name'],					
-									'username' => $_POST['username'],
+									'last_name' => $_POST['last_name'],										
+									'username' => $_SESSION['username'],
 									'password' => $_POST['password'],
-									'email' => $_POST['email'],
-									'sexe' => $_POST['sexe'],
-									'age' => $_POST['age'],					
+									'email' => $_POST['email'],					
 									'lycee' => $_POST['lycee'],
 									'classe' => $_POST['classe']
 									)
 								);
 
 						
-						echo "Vous avez bien &eacute;t&eacute; inscrit. Vous pouvez dor&eacute;navant vous connecter.";
-						// redirection login
-						header('Location:login.php');
+						echo "Vous avez bien modifi&eacute; votre profil.";
+						// redirection profil
+						header('Location:profil.php');
 						}
 						else
 						{
@@ -88,15 +88,12 @@ if (!utilisateur_est_connecte()){
 			echo "Remplissez tous les champs correctement";
 		}
 	}
-}
-else{
-	header('Location:index.php');
-}
 
 /******************************** 
 			VIEW 
 ********************************/
 include 'view/_header.html';
 include 'view/_menu.php';
-include 'view/register.html';
+include 'view/edit_profil.html';
 include 'view/_footer.html';
+

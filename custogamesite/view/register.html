@@ -1,15 +1,19 @@
-<form action="register.php" method="post">
-	Prénom: <input type="text" name="first_name"><br/>
-	Nom: <input type="text" name="last_name"><br/>
-	Pseudo: <input type="text" name="username"><br/>
-	Mot de Passe: <input type="password" name="password"><br/>
-	E-mail: <input type="mail" name="email"><br/>
-	Garçon<input type="radio" name="sexe" value="garcon"><br/>
-	Fille<input type="radio" name="sexe" value="fille"><br/>
-	Date de naissance: <input type="text" name="birthday"><br/>
-	Lycée: <input type="text" name="lycee"><br/>
-	Classe: <input type="text" name="classe"><br/>
-	<input type="submit" value="Inscription">
-</form>
+<div class="container">
+	<form action="register.php" method="post">
+		Prénom : <input type="text" name="first_name"><br/>
+		Nom : <input type="text" name="last_name"><br/>
+		Pseudo : <input type="text" name="username"><br/>
+		Mot de Passe (>6 caractères) : <input type="password" name="password">  Confirmation : <input type="password" name="passverif"><br/> 
+		<br/>
+		E-mail : <input type="mail" name="email">  Confirmation : <input type="email" name="mailverif"><br/>
+		Sexe :    <input type="radio" name="sexe" value="g" id="g"><label for="g">Garçon</label>
+					<input type="radio" name="sexe" value="f" id="f"><label for="f">Fille</label><br/>
+		Age : <input type="text" name="age"><br/>
+		Lycée : <input type="text" name="lycee"><br/>
+		Classe : <input type="text" name="classe"><br/>
+		<p>En cliquant sur Inscription, vous acceptez nos <a href="cgu.php">CGU</a>.</p>
+		<input type="submit" value="Inscription">
+	</form>
 
-<p>Deja inscrit ? <a href="login.php">Connecte-toi</a></p>
+	<p>Deja inscrit ? <a href="login.php">Connecte-toi</a></p>
+</div><!-- end .container -->

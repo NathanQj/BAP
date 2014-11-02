@@ -1,8 +1,12 @@
 <?php
-
+/******************************** 
+	 DATABASE & FUNCTIONS 
+********************************/
 require('config/config.php');
 require('config/session.php');
-
+/******************************** 
+			PROCESS 
+********************************/
 if (isset($_POST['username']) && !empty($_POST['username'])
 	&& isset($_POST['password']) && !empty($_POST['password'])){
 
@@ -24,8 +28,8 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 		// password entré = password BDD
 		if ($data['password'] == $_POST['password']){
 			// on remplit des variables de session qui concernent l'user connecté
-			$_SESSION['id_user'] = $data['id'];
-			$_SESSION['username_user'] = $data['username'];
+			$_SESSION['id'] = $data['id'];
+			$_SESSION['username'] = $data['username'];
 
 			// redirection page d'accueil
 			header('Location:index.php');
@@ -42,6 +46,8 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 			VIEW 
 ********************************/
 include 'view/_header.html';
-include 'view/_menu.html';
+include 'view/_menu.php';
 include 'view/login.html';
 include 'view/_footer.html';
+
+var_dump($_SESSION);

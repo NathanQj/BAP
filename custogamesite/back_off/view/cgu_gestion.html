@@ -1,0 +1,15 @@
+<?php 
+$req = $db->prepare('SELECT * FROM cgu LIMIT 1');
+$req->execute(
+	array());
+while ($datas = $req->fetch())
+{ 
+?>
+<form action="cgu_gestion.php" method="post">		
+	CGU : <input type="text" name="content" value="<?php echo $datas['content']; ?>"><br/>
+	<input type="submit" value="Modifier">
+</form>
+<a href="cgu.php" type="button">Annuler</a>
+<?php 
+}
+?>

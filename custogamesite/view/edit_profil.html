@@ -1,0 +1,32 @@
+<?php
+
+if (utilisateur_est_connecte())
+{
+	$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+	$req->execute(
+		array(
+			'username' => $_SESSION['username']
+			)
+		);
+	while ($datas = $req->fetch())
+	{ 
+	?>
+	<div class="container">
+		<form action="edit_profil.php" method="post">
+			Prénom : <input type="text" name="first_name" value="<?php echo htmlspecialchars($datas['first_name']); ?>"><br/>
+			Nom : <input type="text" name="last_name" value="<?php echo htmlspecialchars($datas['last_name']); ?>"><br/>
+			Pseudo : <input type="text" name="username" value="<?php echo htmlspecialchars($datas['username']); ?>"><br/>
+			Mot de Passe : <input type="password" name="password" value="<?php echo htmlspecialchars($datas['password']); ?>"> (>6 caractères) <br/> 
+			Confirmation : <input type="password" name="passverif" value="<?php echo htmlspecialchars($datas['password']); ?>"><br/> 
+			E-mail : <input type="mail" name="email" value="<?php echo htmlspecialchars($datas['email']); ?>">  <br/> 
+			Confirmation : <input type="email" name="mailverif" value="<?php echo htmlspecialchars($datas['email']); ?>"><br/>
+			Lycée : <input type="text" name="lycee" value="<?php echo $datas['lycee']; ?>"><br/>
+			Classe : <input type="text" name="classe" value="<?php echo $datas['classe']; ?>"><br/>
+			<input type="submit" value="Modifier">
+		</form>
+		<a href="profil.php" type="button">Annuler</a>
+	</div><!-- end .container -->
+	<?php
+	}
+}
+?>
