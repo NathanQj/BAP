@@ -92,7 +92,7 @@ require('config/session.php');
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/_header.html';
+include 'view/head.html';
 include 'view/_menu.php';
 include 'view/edit_profil.html';
 include 'view/_footer.html';

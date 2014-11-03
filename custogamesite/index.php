@@ -23,7 +23,8 @@ Bienvenue sur le site du CustoGame.<br />
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/_header.html';
+include 'view/head.html';
+
 include 'view/_menu.php';
 
 

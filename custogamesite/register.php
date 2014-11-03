@@ -96,7 +96,7 @@ else{
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/_header.html';
+include 'view/head.html';
 include 'view/_menu.php';
 include 'view/register.html';
 include 'view/_footer.html';

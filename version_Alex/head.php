@@ -10,7 +10,7 @@
 
  	<!-- favicon -->
  
- <link rel="icon" type="image/png" href="ressources/images/favicon.png">
+ <link rel="icon" type="image/png" href="ressources/img/favicon.png">
   
 		<!-- jQuery -->
 <script src="ressources/js/jquery-1.11.1.min.js"></script>
