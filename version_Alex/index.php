@@ -297,7 +297,8 @@ ob_end_flush();
 
 			}
 			
-			$('.content, .create, .menu').on('click', function(){
+			$('.content, .create, .menu').on('click', function(){
+
 				if(!profilcompleted){
 					target = $('a', $(this)).attr('href');
 					$('.overlay, .qcm').fadeIn(function(){
