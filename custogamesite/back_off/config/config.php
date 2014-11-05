@@ -28,3 +28,17 @@ function user_is_admin() {
 		return true;
 	}
 }
+
+// Photos par Level :
+
+	function SelectAllImages(PDO $db) {
+
+	$sql = "SELECT picture FROM users"; 
+
+	$req = $db->prepare($sql); 
+	$req->execute(); 
+
+	$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+	return $result; 
+}

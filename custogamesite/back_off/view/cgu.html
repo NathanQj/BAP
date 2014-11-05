@@ -1,17 +1,17 @@
-<a href="cgu_gestion.php">Modifier les CGU</a>
-
-<?php
-
-$req = $db->prepare("SELECT * FROM cgu");
-$req->execute(array());
-
-while ($datas = $req->fetch())
-{
-	$content = $datas['content'];
-}
-?>
 <div class="container">
- <?php echo $content; ?>
+	<a href="cgu_gestion.php">Modifier les CGU</a><br/>
+
+	<?php
+
+	$req = $db->prepare("SELECT * FROM cgu");
+	$req->execute(array());
+
+	while ($datas = $req->fetch())
+	{
+		$content = $datas['content'];
+	}
+	?>
+
+	 <?php echo $content; ?><br/>
+	<a href="cgu_gestion.php">Modifier les CGU</a><br/>
 </div>
-<?php
-?>

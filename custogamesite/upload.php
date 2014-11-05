@@ -8,39 +8,32 @@ require('config/session.php');
 /******************************** 
 			PROCESS 
 ********************************/
-if (!utilisateur_est_connecte()) {
-	header('Location:register.php');
+if (utilisateur_est_connecte()) 
+{
+	if ($_FILES['icone']['error'] > 0) $erreur = "Erreur lors du transfert";
+	
+	if ($_FILES['icone']['size'] > $maxsize) $erreur = "Le fichier est trop gros";
+	
+	$extensions_valides = array( 'mp4' , 'avi' , 'mkv' , 'mpg' );
+	//1. strrchr renvoie l'extension avec le point (« . »).
+	//2. substr(chaine,1) ignore le premier caractère de chaine.
+	//3. strtolower met l'extension en minuscules.
+	$extension_upload = strtolower(  substr(  strrchr($_FILES['icone']['name'], '.')  ,1)  );
+	
+	if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+	$image_sizes = getimagesize($_FILES['icone']['tmp_name']);
+	
+	if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
+
 }
-else{
-	// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
-	if (isset($_FILES['custo']) AND $_FILES['custo']['error'] == 0){
-		// Testons si le fichier n'est pas trop gros
-		if ($_FILES['custo']['size'] <= 1000000)
-		{
-			$infosfichier = pathinfo($_FILES['custo']['name']);
-			$extension_upload = $infosfichier['extension'];
-			$extensions_autorisees = array('mov', 'mpeg4', 'mp4', 'avi', 'wmv', 'mpegps', 'flv', '3gpp', 'webm');
-			if (in_array($extension_upload, $extensions_autorisees))
-			{
-				// On peut valider le fichier et le stocker définitivement
-				move_uploaded_file($_FILES['custo']['tmp_name'], 'uploads/videos' . basename($_FILES['custo']['name']));
-				echo "L'envoi a bien été effectué !";                
-			}
-			else
-			{
-				echo "L\'extension du fichier n'est pas acceptée";
-			}
-		}
-		else
-		{
-			echo "Le fichier est trop lourd";
-		}
-	}
+else
+{
+	header('Location:login.php');
 }
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/head.html';
+include 'view/_head.html';
 include 'view/_menu.php';
 include 'view/upload.html';
 include 'view/_footer.html';

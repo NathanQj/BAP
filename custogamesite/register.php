@@ -8,6 +8,8 @@ require('config/session.php');
 /******************************** 
 			PROCESS 
 ********************************/
+
+
 //si l'utilisateur n'est pas connecté
 if (!utilisateur_est_connecte()){ 
 
@@ -54,7 +56,7 @@ if (!utilisateur_est_connecte()){
 									'sexe' => $_POST['sexe'],
 									'age' => $_POST['age'],					
 									'lycee' => $_POST['lycee'],
-									'classe' => $_POST['classe']
+									'classe' => $_POST['classe'],
 									)
 								);
 
@@ -96,7 +98,7 @@ else{
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/head.html';
+include 'view/_head.html';
 include 'view/_menu.php';
 include 'view/register.html';
 include 'view/_footer.html';

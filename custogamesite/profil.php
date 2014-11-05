@@ -13,7 +13,7 @@ require('config/session.php');
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/head.html';
+include 'view/_head.html';
 include 'view/_menu.php';
 include 'view/profil.html';
 include 'view/_footer.html';

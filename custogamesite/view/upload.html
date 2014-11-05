@@ -1,13 +1,13 @@
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form method="post" action="reception.php" enctype="multipart/form-data">
+	<label for="mon_fichier">Fichier (.mp4, .avi, .mkv, .mpg | max. 500 Mo) :</label><br />
+	<input type="hidden" name="MAX_FILE_SIZE" value="591048576" />
+	<input type="file" name="mon_fichier" id="mon_fichier" /><br />
 
-        <p>
+	<label for="titre">Titre du fichier (max. 50 caractères) :</label><br />
+	<input type="text" name="title" value="Titre du fichier" id="titre" /><br />
 
-                Formulaire d'envoi de fichier :<br />
+	<label for="description">Description de votre fichier (max. 255 caractères) :</label><br />
+	<textarea name="description" id="description"></textarea><br />
 
-                <input type="file" name="custo" /><br />
-
-                <input type="submit" value="Envoyer le fichier" />
-
-        </p>
-
+	<input type="submit" name="submit" value="Envoyer" />
 </form>

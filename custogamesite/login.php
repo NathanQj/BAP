@@ -45,7 +45,7 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/head.html';
+include 'view/_head.html';
 include 'view/_menu.php';
 include 'view/login.html';
 include 'view/_footer.html';

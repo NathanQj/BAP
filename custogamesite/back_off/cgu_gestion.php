@@ -40,7 +40,6 @@ if(user_is_admin()){
 include 'view/_header.html';
 include 'view/_menu.html';
 include 'view/cgu_gestion.html';
-include 'view/_footer.html';
 }
 else
 {

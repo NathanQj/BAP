@@ -35,7 +35,8 @@ while ($datas = $req->fetch())
 		Lycée : <?php echo $datas['lycee']; ?><br/>
 		Classe : <?php echo htmlspecialchars($datas['classe']); ?><br/>
 		Age : <?php echo htmlspecialchars($datas['age']); ?><br/>
-		Email : <em><?php echo htmlspecialchars($datas['email']); ?></em>
+		Email : <em><?php echo htmlspecialchars($datas['email']); ?></em><br/>
+		Photo : <?php echo htmlspecialchars($datas['picture']); ?>
 		</p>
 	<?php
 	}
