@@ -1,0 +1,29 @@
+		.carousel{
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			.carousel-inner{
+				height: 100%;
+				width: 100%;
+			}
+			.carousel-indicators{
+				visibility: hidden;
+			}
+			.item{
+			webkit-background-size: cover !important;
+			-moz-background-size: cover !important;
+			-o-background-size: cover !important;
+			background-size: cover !important;
+			left: 0 !important;  
+			height: 100%;
+				&#slide1{
+					background: url("../img/biomech.jpg") center center no-repeat;
+				}
+				&#slide2{
+					background: url("../img/helix_min.jpg") center center no-repeat;
+				}
+				&#slide3{
+					background: url("../img/exo_suit_min.jpg") center center no-repeat;
+				}
+			}/* end item */
+		}/* end carousel */

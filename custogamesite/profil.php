@@ -5,6 +5,7 @@
 ********************************/
 require('config/config.php');
 require('config/session.php');
+include 'view/_head.html';
 /******************************** 
 			PROCESS 
 ********************************/
@@ -13,7 +14,7 @@ require('config/session.php');
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/_head.html';
+
 include 'view/_menu.php';
 include 'view/profil.html';
 include 'view/_footer.html';

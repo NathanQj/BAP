@@ -5,6 +5,7 @@
 ********************************/
 require('config/config.php');
 require('config/session.php');
+include 'view/_head.html';
 /******************************** 
 			PROCESS 
 ********************************/
@@ -24,11 +25,7 @@ if (!utilisateur_est_connecte()){
 				&& isset($_POST['username']) && !empty($_POST['username'])
 				&& isset($_POST['password']) && !empty($_POST['password'])
 				&& isset($_POST['passverif']) && !empty($_POST['passverif'])
-				&& isset($_POST['email']) && !empty($_POST['email'])
-				&& isset($_POST['sexe']) && !empty($_POST['sexe'])
-				&& isset($_POST['age']) && !empty($_POST['age'])
-				&& isset($_POST['lycee']) && !empty($_POST['lycee'])
-				&& isset($_POST['classe']) && !empty($_POST['classe']))
+				&& isset($_POST['email']) && !empty($_POST['email']))
 			{
 					
 				//On verifie si le mot de passe et celui de la verification sont identiques
@@ -43,8 +40,8 @@ if (!utilisateur_est_connecte()){
 
 							session_unset();
 
-							$request = $db->prepare('INSERT INTO users (first_name, last_name, username, password, email, sexe, age, lycee, classe, user_registered) 
-														VALUES (:first_name, :last_name, :username, :password, :email, :sexe, :age, :lycee, :classe, now())');
+							$request = $db->prepare('INSERT INTO users (first_name, last_name, username, password, email, user_registered) 
+														VALUES (:first_name, :last_name, :username, :password, :email, now())');
 
 							$request->execute(
 								array(
@@ -53,41 +50,42 @@ if (!utilisateur_est_connecte()){
 									'username' => $_POST['username'],
 									'password' => $_POST['password'],
 									'email' => $_POST['email'],
-									'sexe' => $_POST['sexe'],
-									'age' => $_POST['age'],					
-									'lycee' => $_POST['lycee'],
-									'classe' => $_POST['classe'],
 									)
 								);
 
 						
 						echo "Vous avez bien &eacute;t&eacute; inscrit. Vous pouvez dor&eacute;navant vous connecter.";
 						// redirection login
-						header('Location:login.php');
+						header('Location:profil.php');
 						}
 						else
 						{
 							echo "Les mails ne correspondent pas";
+							header('Location:index.php');
 						}	
 					}
 					else
 					{
 						echo "Le mot de passe doit faire plus de 6 caractères";
+						header('Location:index.php');
 					}
 				}
 				else
 				{
 					echo "Les mots de passe ne correspondent pas";
+					header('Location:index.php');
 				}
 			}
 			else
 			{
 				echo "Remplissez tous les champs";
+				header('Location:index.php');
 			}
 		}
 		else
 		{
 			echo "Remplissez tous les champs correctement";
+			header('Location:index.php');
 		}
 	}
 }
@@ -98,7 +96,3 @@ else{
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/_head.html';
-include 'view/_menu.php';
-include 'view/register.html';
-include 'view/_footer.html';

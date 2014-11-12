@@ -4,9 +4,14 @@
 ********************************/
 require('config/config.php');
 require('config/session.php');
+
 /******************************** 
 			PROCESS 
 ********************************/
+	if(isset($_SESSION['username']) OR !empty($_SESSION['username'])){
+		header("Location: profil.php");
+}
+else{
 if (isset($_POST['username']) && !empty($_POST['username'])
 	&& isset($_POST['password']) && !empty($_POST['password'])){
 
@@ -40,14 +45,12 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 
 	// if : username ou pass incorrect
 	echo 'Pseudo et/ou mot de passe incorrects';
+	header('Location:index.php');
 }
 
 /******************************** 
 			VIEW 
 ********************************/
 include 'view/_head.html';
-include 'view/_menu.php';
 include 'view/login.html';
-include 'view/_footer.html';
-
-var_dump($_SESSION);
+}

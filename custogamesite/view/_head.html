@@ -5,13 +5,55 @@
 
 		<link rel="icon" type="image/png" href="view/img/favicon.png">
 
+		<!--                     CSS                     -->
+		<!-- Reset -->
+		<link rel="stylesheet" href="view/style/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>		
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="view/style/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
-		<link rel="stylesheet"  href="view/style/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
-		
+<!-- 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="view/style/bootstrap.min.css"> -->
+		<!-- styles -->
+		<link rel="stylesheet" href="ressources/css/style_carousel.css" type="text/css" media="screen" />
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="ressources/css/style.css" type="text/css" media="screen" />
+ 
+		<!-- jQuery -->
+<script src="ressources/js/jquery-1.11.1.min.js"></script>
+<script src="modules/facebox/js/myfacebox.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+
+<meta content="width=device-width, height=device-height" name="viewport">
 
 		<title>CustoGame Site</title>
+
+<script>
+	$(document).ready(function(){
+		$('#msgMail').hide();
+		$('#envoyerOubliMail1').click(function(){
+			if($('#youremail').val().length==0)
+				return;
+			$.ajax({
+				type:'POST',
+			    url:'modules/login/action/retrievepwd.php',
+			    data: {email:$('#youremail').val()},
+			    error: function()
+			    {
+			        //file not exists
+			    },
+			    success: function()
+			    {
+			    	$('#msgMail').show();
+			    	setTimeout(function(){
+			    		$('#fermeture').trigger("click");
+			    		$('#formMail').show();
+			    		$('#msgMail').hide();
+			    	},2000);
+			    }
+			});
+		});
+		
+		
+	});
+</script>
 
 </head>
 
