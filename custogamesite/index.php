@@ -8,9 +8,17 @@ require('config/session.php');
 /******************************** 
 			PROCESS 
 ********************************/
+//Si l'utilisateur est connecté, on affiche l'index avec les vidéos
 	if(isset($_SESSION['username']) OR !empty($_SESSION['username'])){
-		header("Location: profil.php");
+
+include 'view/_head.html';
+include 'view/_menu.php';
+include 'view/index.html';
+include 'view/_footer.html';
+
 }
+
+//Si l'utilisateur n'est pas connecté, on affiche l'index avec l'espace d'inscription/connexion
 else{
 if (isset($_POST['username']) && !empty($_POST['username'])
 	&& isset($_POST['password']) && !empty($_POST['password'])){
@@ -45,12 +53,12 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 
 	// if : username ou pass incorrect
 	echo 'Pseudo et/ou mot de passe incorrects';
-	header('Location:index.php');
+	header('Location:login.php');
 }
 
 /******************************** 
 			VIEW 
 ********************************/
-include 'view/_head.html';
+include 'view/_head_index.html';
 include 'view/login.html';
 }

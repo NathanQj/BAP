@@ -1,0 +1,101 @@
+/* HEADER */
+#header{
+	width: 100%;
+	height: 250px;
+	background-color: #fff;
+}
+#header #logo{
+	padding-left:30px;
+	padding-top:30px;
+	float: left;
+}
+#header #custogame{
+	margin: 80px 0 auto 0;
+}
+#header .disconnect{
+	float: right;
+	padding-top: 30px;
+	padding-right: 10px;
+}
+/* MENU */
+#menu{
+	width: 100%;
+	height: 50px;
+	background-color: #1a2938;
+}
+#menu ul{
+	height: 100%;
+	padding-left: 0;
+}
+#menu ul li{
+	 display: inline-block;
+	 height: 100%;
+	 width: 15%;
+	 padding-top: 18px;
+	 text-decoration: none;
+	 color:#fff; 
+}
+#menu ul li:hover{
+	background-color: #16a086;
+}
+#menu ul li a{
+	color: #fff;
+	cursor: pointer;
+}
+/* FOOTER */
+footer{
+	width: 100%;
+	height: 500px;
+	background-color: #1a2938;
+	bottom:0;
+	color: #fff;
+}
+footer .images_footer{
+	text-align: center;
+	color: #16a086;
+	margin-top: 20px;
+
+}
+footer .images_footer #parrainer{
+
+}
+footer .images_footer #savoir_plus{
+
+}
+footer .images_footer #regles_du_jeu{
+
+}
+footer .images_footer .descri_footer{
+	margin-top: 5px;
+	background-color: #2d3e50;
+	width: 60%;
+	padding: 4px 0;
+	margin-left: 45px;
+	margin-top: 10px; 
+}
+footer .social_footer{
+	text-align: center;
+	color: #16a086;
+	margin-top: 20px;
+
+}
+footer .social_footer .descri_footer{
+	margin-top: 5px;
+	background-color: #2d3e50;
+	width: 300%;
+	padding: 4px 0;
+	margin-top: 10px; 
+}
+footer .col-md-2 {
+    width: 13%;
+}
+footer .social_footer img{
+	width: 70%;
+	 margin-left: 385px;
+}
+
+
+footer .descri_footer {
+	margin-left: 385px;
+
+}

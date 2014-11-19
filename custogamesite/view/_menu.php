@@ -1,54 +1,41 @@
+	<div id="header">
+		<img src="view/img/logo.png" id="logo">
+		<img src="view/img/header/custogame.png" id="custogame">
+		<a href="logout.php" class="disconnect">Déconnexion</a>
+	</div><!-- !#header -->
 	<nav id="menu">
-		<div class="container">
-			<ul>
-				<li>
-					<a href="index.php">Accueil</a>
-				</li>
-				<li>
-					<a href="discover.php">Decouvrir</a>
-				</li>
-				<?php if (utilisateur_est_connecte()) { 
+		<ul>
+			<a href="index.php"><li>Accueil</li></a>
+			<a href="discover.php"><li>Decouvrir</li></a>
+			<?php if (utilisateur_est_connecte()) { 
 
-					$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
-					$req->execute(
-						array(
-							'username' => $_SESSION['username']
-							)
-						);
-						while ($datas = $req->fetch())
-					{ 
-					?>
-				<li>
-					<a href="profil.php?<?php echo $datas['username']; ?>">Profil</a>
-				</li>
-				<li>
-					<a href="upload.php">Publier une vidéo</a>
-				</li>
-				<?php 
-					}
-				}else{ ?>
-				<li>
-					<a href="register.php">Inscription</a>
-				</li>
-				<li>
-					<a href="login.php">Se connecter</a>
-				</li>
-				<?php } ?>
-				<li>
-					<a href="contact.php">Contact</a>
-				</li>
-				<?php if(user_is_admin()){ ?>
-				<li>
-					<a href="back_off">Accès au back office</a>
-				</li>					
-				<?php }
-
+				$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+				$req->execute(
+					array(
+						'username' => $_SESSION['username']
+						)
+					);
+					while ($datas = $req->fetch())
+				{ 
 				?>
-			</ul>
-		</div><!-- end .container -->
+			<a href="profil.php?<?php echo $datas['username']; ?>"><li>Profil</li></a>
+			<a href="upload.php"><li>Publier une vidéo</li></a>
+			<?php 
+				}
+			}else{ ?>
+			<a href="register.php"><li>Inscription</li></a>
+			<a href="login.php"><li>Se connecter</li></a>
+			<?php } ?>
+			<a href="contact.php"><li>Contact</li></a>
+			<?php if(user_is_admin()){ ?>
+			<a href="back_off"><li>Accès au back office</li></a>		
+			<?php }
+
+			?>
+		</ul>
 	</nav><!-- end #menu -->
 
-	<form action="#" method="post" accept-charset="utf-8">
+<!-- 	<form action="#" method="post" accept-charset="utf-8">
 		<input type="text" name="recherche" value="" placeholder="Recherche...">
 	</form>
-	
+	 -->
