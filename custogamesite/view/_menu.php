@@ -35,7 +35,8 @@
 		</ul>
 	</nav><!-- end #menu -->
 
-<!-- 	<form action="#" method="post" accept-charset="utf-8">
+<!-- 	
+	<form action="#" method="post" accept-charset="utf-8">
 		<input type="text" name="recherche" value="" placeholder="Recherche...">
 	</form>
-	 -->
+-->

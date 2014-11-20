@@ -10,13 +10,15 @@
 	float: left;
 }
 #header #custogame{
-	margin: 80px 0 auto 0;
+	margin: 80px 73px auto 0;
 }
 #header .disconnect{
 	float: right;
 	padding-top: 30px;
 	padding-right: 10px;
 }
+/************************************************/
+
 /* MENU */
 #menu{
 	width: 100%;
@@ -42,10 +44,76 @@
 	color: #fff;
 	cursor: pointer;
 }
+/************************************************/
+
+/* INDEX */
+#index{
+	background-color: #2d3e50;
+	width: 100%;
+}
+	/***/ /* Vidéo de présentation */ /***/
+#player_vid_pres{
+	height: 500px;
+	width: 100%;
+	background-color: #000;
+}
+#vid_pres #concept_custo{
+	width: 100%;
+	height: 100%;
+}
+#descri_vid_pres{
+	width: 100%;
+	height: 55px;
+	text-align: center;
+	color: #fff;
+	padding-top: 20px;
+	background-color: #525a5c;
+
+}
+#index #pitch_title{
+	width: 150px;
+	height: 55px;
+	padding: 8px 7px 0px;
+	margin: auto;
+	margin-top: 25px;
+	text-align: center;
+	background-color: #16a086;
+}
+.pitch{
+	padding: 30px 22px;
+	margin: 10px 0px 100PX;
+	background-color: #192938;
+	color: #fff;
+	text-align: left;
+}
+	/***/ /* Dernières vidéos */ /***/
+#last_vids{
+	background-color: #192938;
+	width: 100%;
+	padding-bottom: 50px;
+	margin-bottom: 10px;
+}
+#last_vids h2{
+	padding: 10px 0 20px;
+	margin: auto 0;
+	color: #fff;
+}
+#last_vids_content{
+	background-color: #fff;
+	width: 100%;
+	height: 250px;
+}
+	/***/ /* A toi de jouer */ /***/
+#your_turn{
+	padding: 20px 0;
+	margin:auto 0;
+}
+/************************************************/
+
 /* FOOTER */
 footer{
 	width: 100%;
-	height: 500px;
+	height: 280px;
 	background-color: #1a2938;
 	bottom:0;
 	color: #fff;
@@ -70,7 +138,7 @@ footer .images_footer .descri_footer{
 	background-color: #2d3e50;
 	width: 60%;
 	padding: 4px 0;
-	margin-left: 45px;
+	margin-left: 35px;
 	margin-top: 10px; 
 }
 footer .social_footer{
@@ -86,16 +154,29 @@ footer .social_footer .descri_footer{
 	padding: 4px 0;
 	margin-top: 10px; 
 }
+footer .social_footer img{
+	width: 70%;
+	margin-left: 385px;
+}
 footer .col-md-2 {
     width: 13%;
 }
-footer .social_footer img{
-	width: 70%;
-	 margin-left: 385px;
-}
-
 
 footer .descri_footer {
 	margin-left: 385px;
 
 }
+
+/***/
+#p_footer{
+	text-align: center;
+	color: white;
+}
+#p_footer a{
+	color: white;
+}
+#p_footer a:hover, a:focus{
+	text-decoration: none;
+}
+ 
+/************************************************/
