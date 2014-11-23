@@ -1,7 +1,11 @@
 	<div id="header">
-		<img src="view/img/logo.png" id="logo">
-		<img src="view/img/header/custogame.png" id="custogame">
-		<a href="logout.php" class="disconnect">Déconnexion</a>
+		<img src="view/img/logo.png" id="logo" alt='logo'>
+		<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
+		<div  class="disconnect">
+			<?php echo $_SESSION['username']; ?>
+			<br/>
+			<a href="logout.php">Déconnexion</a>
+		</div>
 	</div><!-- !#header -->
 	<nav id="menu">
 		<ul>
