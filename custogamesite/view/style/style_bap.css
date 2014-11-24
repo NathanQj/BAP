@@ -75,19 +75,19 @@
 		background-color: #525a5c;
 
 	}
-	#index #pitch_title{
-		width: 150px;
-		height: 55px;
-		padding: 8px 7px 0px;
-		margin: auto;
-		margin-top: 25px;
-		text-align: center;
-		background-color: #16a086;
-		color: #fff;
+	#index .bluebox{
+			width: 150px;
+			height: 55px;
+			padding: 8px 7px 0px;
+			margin: auto;
+			margin-top: 25px;
+			text-align: center;
+			background-color: #16a086;
+			color: #fff;
 	}
 	.pitch{
 		padding: 30px 22px;
-		margin: 10px 0px 100PX;
+		margin: 0px 0px 100px;
 		background-color: #192938;
 		color: #fff;
 		text-align: left;
@@ -161,7 +161,8 @@
 	#infos_upload_content ::-webkit-input-placeholder{
 
 	}
-	#infos_upload_content :-moz-placeholder {
+	#infos_upload_content 
+:-moz-placeholder {
 
 	}	
 	#infos_upload_content :-ms-input-placeholder{
@@ -176,6 +177,47 @@
 		margin: 20px 0;
 	}
 
+/************************************************/
+
+/* CONTACT */
+	#contact{
+		background-color: #2d3e50;
+	}
+	#contact h2 {
+		padding: 10px 0 20px;
+		margin: auto 0;
+		color: #fff;
+	}
+	#contact .bluebox{
+		width: 250px;
+		height: 55px;
+		padding: 8px 7px 0px;
+		margin: auto;
+		margin-top: 25px;
+		text-align: center;
+		background-color: #16a086;
+		color: #fff;
+	}
+	#contact_form{
+		border: solid 1px #16a086;
+		background-color: #1a2938;
+		color: #fff;
+		padding: 20px;
+		margin-bottom: 50px;
+	}
+	#contact_form input{
+		background-color: #2d3e50;
+
+	}
+	#contact_form .form-control{
+		border: 1px solid #16a086;
+		border-radius: 0px;
+
+	}
+	#contact_form #message{
+		background-color: #2d3e50;
+		color: #fff;
+	}
 /************************************************/
 
 /* FOOTER */
@@ -258,4 +300,5 @@
 		background-color: #e74c3c;
 	}
 	
+
 /************************************************/
