@@ -3,7 +3,7 @@
 $host = 'localhost';
 $db_name = 'alexnaudiim'; // à remplir avec le nom de la BDD
 $user = 'root';
-$password= '';
+$password= 'root';
 
 
 try{
