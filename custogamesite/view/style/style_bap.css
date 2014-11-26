@@ -122,6 +122,14 @@
 		width: 100%;
 		color: #fff;
 	}
+	#upload .title_sides{
+		background-color: #1a2938;
+		height: 55px;
+		margin: 25px auto auto;
+		padding: 8px 7px 0;
+		text-align: center;
+	}
+
 	/***/ /* Upload vidéo */ /***/
 	#vid_upload{
 
@@ -182,6 +190,7 @@
 /* CONTACT */
 	#contact{
 		background-color: #2d3e50;
+		text-align: left;
 	}
 	#contact h2 {
 		padding: 10px 0 20px;
@@ -207,7 +216,6 @@
 	}
 	#contact_form input{
 		background-color: #2d3e50;
-
 	}
 	#contact_form .form-control{
 		border: 1px solid #16a086;
@@ -217,6 +225,9 @@
 	#contact_form #message{
 		background-color: #2d3e50;
 		color: #fff;
+	}
+	#contact_valid{
+		text-align: center;
 	}
 /************************************************/
 
@@ -266,14 +277,14 @@
 	}
 	footer .social_footer img{
 		width: 70%;
-		margin-left: 385px;
+		margin-left: 230%;
 	}
 	footer .col-md-2 {
-	    width: 13%;
+		width: 13%;
 	}
 
 	footer .descri_footer {
-		margin-left: 385px;
+		margin-left: 230%;
 
 	}
 	/***/ /* Texte footer */ /***/
