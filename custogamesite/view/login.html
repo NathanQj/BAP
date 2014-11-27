@@ -22,6 +22,7 @@
 				<div class="connexion">
 					<div class="inscrit">
 						<span>Vous avez deja un compte ? <strong> Connectez-vous.</strong></span>
+						<?php echo $error ; ?> 
 						<form action="login.php" method="post">
 							<div class="error">Email ou mot de passe érroné </div>
 							<input type="text" name="username" placeholder="Pseudo"><br/>
