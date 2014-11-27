@@ -1,4 +1,4 @@
-<?php include_once 'form.php';?>
+<?php include_once 'view/form.php';?>
 <div id="contact">
 	<div class="container">
 		<form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="contactform">
@@ -37,7 +37,7 @@
 					<input type="text" name="subject" id="subject" value="" class="form-control required" role="input" aria-required="true" />
 				</div>   
 				<div class="form-group">
-					<label for="message">Votre message <span class="help-required">*</span></label>
+					<label for="message">Votre message :<span class="help-required">*</span></label>
 					<textarea rows="8" name="message" id="message" class="form-control required" role="textbox" aria-required="true" placeholder="Ecrivez ici le contenu de votre message. Merci"></textarea>
 				</div>
 				<div id="contact_valid">

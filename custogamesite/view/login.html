@@ -1,3 +1,4 @@
+<?php include_once 'index.php';?>
 	<div class="overlay">	
 	</div>	
 	<div class="mot_passe_oublie" name="mot_passe_oublie" id="mot_passe_oublie">
@@ -22,8 +23,8 @@
 				<div class="connexion">
 					<div class="inscrit">
 						<span>Vous avez deja un compte ? <strong> Connectez-vous.</strong></span>
-						<?php echo $error ; ?> 
-						<form action="login.php" method="post">
+						<?php  echo $error ?> 
+						<form action="index.php" method="post">
 							<div class="error">Email ou mot de passe érroné </div>
 							<input type="text" name="username" placeholder="Pseudo"><br/>
 							<input type="password" name="password" placeholder="Password"><br/>
