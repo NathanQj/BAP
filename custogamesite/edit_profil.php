@@ -67,26 +67,31 @@ include 'view/_head.html';
 						else
 						{
 							echo "Les mails ne correspondent pas";
+							header('Location:profil.php');
 						}	
 					}
 					else
 					{
 						echo "Le mot de passe doit faire plus de 6 caractères";
+						header('Location:profil.php');
 					}
 				}
 				else
 				{
 					echo "Les mots de passe ne correspondent pas";
+					header('Location:profil.php');
 				}
 			}
 			else
 			{
 				echo "Remplissez tous les champs";
+				header('Location:profil.php');
 			}
 		}
 		else
 		{
 			echo "Remplissez tous les champs correctement";
+			header('Location:profil.php');
 		}
 	}
 

@@ -1,22 +1,8 @@
-<?php 
-$edit = "edit_profil.php";
-$logout = "logout.php";
-$register = "register.php";
-$login = "login.php";
-
-
-$connected = "<a href=\"".$edit."\">Modifier mes informations personnelles</a><br/>
-<a href=\"".$logout."\">Se d&eacute;connecter</a>";
-
-$disconnected = "<a href=\"".$register."\">Inscription</a><br/>
-<a href=\"".$login."\">Se connecter</a><br/>";
-
+﻿<?php 
 
 //si l'utilisateur n'est pas connecté
 if (utilisateur_est_connecte())
 {
-	echo $connected;
-
 $req = $db->prepare('SELECT * FROM users WHERE username = :username ');
 $req->execute(
 	array(
@@ -27,25 +13,247 @@ $req->execute(
 while ($datas = $req->fetch())
 {
 	?>
-		<p>
-		<strong>Profil</strong> : <?php echo htmlspecialchars($datas['username']); ?><br/>
-		Prénom : <?php echo htmlspecialchars($datas['first_name']); ?><br/>
-		Nom : <?php echo htmlspecialchars($datas['last_name']); ?><br/>
-		Experience : <?php echo htmlspecialchars($datas['xp']); ?><br/>
-		Lycée : <?php echo $datas['lycee']; ?><br/>
-		Classe : <?php echo htmlspecialchars($datas['classe']); ?><br/>
-		Age : <?php echo htmlspecialchars($datas['age']); ?><br/>
-		Email : <em><?php echo htmlspecialchars($datas['email']); ?></em><br/>
-		Photo : <?php echo htmlspecialchars($datas['picture']); ?>
-		</p>
-	<?php
-	}
+<!-- PROFIL -->
+<div id="profil">
 
-	$req->closeCursor(); // Termine le traitement de la requête
+	<div class="container" id="profile_header">
+		<div class="row">
+			<div class="col-md-4">
+				<img src="<?php echo htmlspecialchars($datas['picture']); ?>">
+			</div><!-- photo -->
+			<div class="col-md-4">
+				<h3><?php echo htmlspecialchars($datas['username']); ?></h3><br/>
+				<p> XP : <?php echo htmlspecialchars($datas['xp']); ?></p>
+			</div><!-- pseudo/lvl/experience -->
+			<div class="col-md-4">		
+				<div id="profil_classement">
+					<div id="profil_classement_title">
+						<h3>Classement :</h3>
+					</div>
+					<!-- !profil_classement_title -->
+					<div id="profil_classement_content">
+						<ul>
+							<?php 
+							$i = 1;
+							foreach ($clsmnt as $key => $value) { 
+							?> 
+							<li>
+								<p><?php echo $i .'. '.$value['username']; ?></p>
+							</li>
+							<?php 
+							$i <= $i++;
+							} ?>
+						</ul>
+					</div>
+					<!-- !profil_classement_content -->
+				</div>
+				<!-- !profil_classement -->
+			</div>
+			<!-- classement -->
+		</div>
+		<!-- !row -->
+	</div>
+	<!-- !container !profile_header -->
+	
+	<!-- !profil_custuser -->
+	<div id="profil_custuser" class="container">
+		<div class="row">
+			<ul id="myTab" class="nav nav-tabs">
+				<li class="active" id="informations_titre">
+					<a href="#home" data-toggle="tab">
+						<div class="infos_title col-md-4">
+							Informations
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#modif_infos" data-toggle="tab">
+						<div class="infos_title col-md-4">
+							Modifier mes infos
+						</div>
+					</a>
+				</li>
+				<li class="dropdown" id="recompenses_titre">
+					<a href="#" id="myTabDrop1" class="dropdown-toggle"	data-toggle="dropdown">
+						<div class="infos_title col-md-4">
+							Récompenses <b class="caret"></b>
+						</div>
+						
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+						<li>
+							<a href="#badges" tabindex="-1" data-toggle="tab">
+								Badges
+							</a>
+						</li>
+						<li>
+							<a href="#trophees" tabindex="-1" data-toggle="tab">
+								Trophées
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- !row -->
+		<div id="myTabContent" class="tab-content">
+			<div id="profil_infos_custuser">
+				<div class="tab-pane fade in active" id="home">
+				<p>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="field_description">Prénom :</div>
+							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['first_name']); ?></div>
+						</div>
+						
+						<div class="col-md-4 unset">
+						</div>
+						
+						<div class="col-md-4">		
+							<div class="field_description">Nom :</div>
+							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['last_name']); ?></div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4">
+							<div class="field_description">Pseudo :</div> 
+							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['username']); ?></div>
+						</div>
+						
+						<div class="col-md-4 unset">
+						</div>
+						
+						<div class="col-md-4">
+							<div class="field_description">Experience :</div> 
+							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['xp']); ?></div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4">
+							<div class="field_description">Lycée :</div> 
+							<div class="field_content_stronk"><?php echo $datas['lycee']; ?></div>
+						</div>
+						
+						<div class="col-md-4 unset">
+						</div>
+						
+						<div class="col-md-4">
+							<div class="field_description">Classe :</div>  
+							<div class="field_content_stronk"><?php echo $datas['classe']; ?></div>
+						</div>
+					</div>
+					
+					<div class="row">				
+						<div class="col-md-4">
+							<div class="field_description">Age :</div> 
+							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['age']); ?></div>
+						</div>
+						
+						<div class="col-md-4 unset">
+						</div>
+						
+						<div class="col-md-4">	
+							<div class="field_description">Email : <em></div>
+							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['email']); ?></div></em>
+						</div>
+					</div>
+				</p>
+				</div>
+				<div class="tab-pane fade formulaire" id="modif_infos">
+					<form action="edit_profil.php" method="post">
+						
+						<div class="row">
+						<div class="col-md-4 unset"></div>
+							<div class="col-md-4">
+								<div class="field_description">Pseudo : </div>
+								<div class="field_content"><input type="text" name="username" value="<?php echo htmlspecialchars($datas['username']); ?>"></div>
+							</div>
+						<div class="col-md-4 unset"></div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4">
+								<div class="field_description">Prénom : </div>
+								<div class="field_content"><input type="text" name="first_name" value="<?php echo htmlspecialchars($datas['first_name']); ?>"></div>
+							</div>
+							<div class="col-md-4 unset"></div>
+							<div class="col-md-4">
+								<div class="field_description">Nom : </div>
+								<div class="field_content"><input type="text" name="last_name" value="<?php echo htmlspecialchars($datas['last_name']); ?>"></div>
+							</div>				
+						</div>						
+						<div class="row">
+							<div class="col-md-4">
+								<div class="field_description">Mot de Passe : (>6 caractères)</div>
+								<div class="field_content"><input type="password" name="password" value="<?php echo htmlspecialchars($datas['password']); ?>"></div>
+							</div>
+							<div class="col-md-4 unset"></div>
+							<div class="col-md-4">
+								<div class="field_description">Confirmation : </div>
+								<div class="field_content"><input type="password" name="passverif" value="<?php echo htmlspecialchars($datas['password']); ?>"></div>
+							</div>		
+						</div>		
+
+						<div class="row">
+							<div class="col-md-4">						
+								<div class="field_description">E-mail : </div>
+								<div class="field_content"><input type="mail" name="email" value="<?php echo htmlspecialchars($datas['email']); ?>"></div>
+							</div>
+							<div class="col-md-4 unset"></div>
+							<div class="col-md-4">
+								<div class="field_description">Confirmation : </div>
+								<div class="field_content"><input type="email" name="mailverif" value="<?php echo htmlspecialchars($datas['email']); ?>"></div>
+							</div>		
+						</div>		
+
+						<div class="row">
+							<div class="col-md-4">
+								<div class="field_description">Lycée : </div>
+								<div class="field_content"><input type="text" name="lycee" value="<?php echo $datas['lycee']; ?>"></div>
+							</div>
+							<div class="col-md-4 unset"></div>
+							<div class="col-md-4">
+								<div class="field_description">Classe : </div>
+								<div class="field_content"><input type="text" name="classe" value="<?php echo $datas['classe']; ?>"></div>
+							</div>		
+						</div>		
+						<input type="submit" value="Modifier" class="valider"><p class="cancel"><a href="profil.php" type="button">Annuler</a><br/>Veillez à ne pas laisser de champ vide. Merci</p>
+					</form>
+				</div>
+				<div class="tab-pane fade badges" id="badges">
+				<p>jMeter is an Open Source testing software. It is 100% pure 
+				Java application for load and performance testing.</p>
+				</div>
+				<div class="tab-pane fade trophees" id="trophees">
+				<p>Enterprise Java Beans (EJB) is a development architecture 
+					for building highly scalable and robust enterprise level    
+					applications to be deployed on J2EE compliant 
+					Application Server such as JBOSS, Web Logic etc.
+				</p>
+				</div>
+			</div>
+		</div>
+<script>
+		$(function () {
+		$('#myTab li:eq(1) a').tab('show');
+		});
+</script>
+	
+
+
+
+</div>
+
+</div>
+<!-- !Profil -->
+
+<?php
 }
-else
-{
-	//Sinon, on lui donne un lien pour sinscrire et un autre pour se connecter
-	echo $disconnected;
-	echo "Vous devez être connecté pour avoir un profil";
+
+$req->closeCursor(); // Termine le traitement de la requête
+	
+/* /////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 }

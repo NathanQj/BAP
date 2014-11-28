@@ -9,8 +9,14 @@ include 'view/_head.html';
 /******************************** 
 			PROCESS 
 ********************************/
-
-
+if (utilisateur_est_connecte()) 
+{
+$clsmnt = SelectUsersFromClassement($db);
+}
+else
+{
+	header('Location:login.php');
+}
 /******************************** 
 			VIEW 
 ********************************/

@@ -1,3 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+		<meta http-equiv="Content-type" content="text/html" charset="utf-8"/>
+
+		<link rel="icon" type="image/png" href="view/img/favicon.png">
+
+		<!--                     CSS                     -->
+		<!-- Reset -->
+		<link rel="stylesheet" href="view/style/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>		
+		<!-- styles -->
+		<link rel="stylesheet" href="ressources/css/style_carousel.css" type="text/css" media="screen" />
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="ressources/css/style.css" type="text/css" media="screen" />
+ 		<link rel="stylesheet" href="view/style/style_bap.css" type="text/css" media="screen" />
+	
+		<!-- jQuery -->
+<script src="ressources/js/jquery-1.11.1.min.js"></script>
+<script src="modules/facebox/js/myfacebox.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+
+<meta content="width=device-width, height=device-height" name="viewport">
+
+		<title>CustoGame Site</title>
+
+<script>
+	$(document).ready(function(){
+		$('#msgMail').hide();
+		$('#envoyerOubliMail1').click(function(){
+			if($('#youremail').val().length==0)
+				return;
+			$.ajax({
+				type:'POST',
+			    url:'modules/login/action/retrievepwd.php',
+			    data: {email:$('#youremail').val()},
+			    error: function()
+			    {
+			        //file not exists
+			    },
+			    success: function()
+			    {
+			    	$('#msgMail').show();
+			    	setTimeout(function(){
+			    		$('#fermeture').trigger("click");
+			    		$('#formMail').show();
+			    		$('#msgMail').hide();
+			    	},2000);
+			    }
+			});
+		});
+		
+		
+	});
+</script>
+
+</head>
+<body>
 	<div class="overlay">	
 	</div>	
 	<div class="mot_passe_oublie" name="mot_passe_oublie" id="mot_passe_oublie">
@@ -23,7 +80,7 @@
 					<div class="inscrit">
 						<span>Vous avez deja un compte ? <strong> Connectez-vous.</strong></span>
 						<form action="login.php" method="post">
-							<div class="error">Email ou mot de passe érroné </div>
+							<div class="error">Email ou mot de passe érroné</div>
 							<input type="text" name="username" placeholder="Pseudo"><br/>
 							<input type="password" name="password" placeholder="Password"><br/>
 							<input type="submit" value="Connexion" />

@@ -12,7 +12,7 @@
 					<!-- On limite le fichier à 100Ko -->
 					<input type="hidden" name="MAX_FILE_SIZE" value="25000000000">
 					<input type="file" name="custo">
-				</form>
+
 			</div>
 			<!-- !vid_upload_content -->
 		</div>
@@ -24,41 +24,43 @@
 					<h2 class="col-md-4 orange_div">Infos sur la vidéo</h2>
 				<div class="col-md-4 title_sides"></div>
 			</div>
-			<form enctype="multipart/form-data" action="upload.php" method="post" class="form">		
-				<div id="infos_upload_content">	
-					<div class="row">
-						<div class="col-md-12">
-							<input type="text" name="vid_name" placeholder="Titre de la vidéo :"><br/>
+	
+				<div class="form">
+					<div id="infos_upload_content">	
+						<div class="row">
+							<div class="col-md-12">
+								<input type="text" name="title" placeholder="Titre de la vidéo :"><br/>
+							</div>
+							<!-- !col-md-12 -->
 						</div>
-						<!-- !col-md-12 -->
+						<div class="row">
+							<div class="col-md-3">
+								<select name="vid_category"><p>Matière :</p><br/>	
+									<?php foreach ($variable as $key => $value): ?>
+									<option>
+										<?php echo $var ?>
+									</option>					
+									<?php endforeach ?>
+								</select><br/>
+								<select name="vid_grade"><p>Classe</p><br/>
+									<?php foreach ($variable as $key => $value): ?>
+									<option>
+										<?php echo $var ?>
+									</option>					
+									<?php endforeach ?>
+								</select>
+							</div>
+							<!-- !col-md-3 -->
+							<div class="col-md-9">
+								<input type="text" id="valider" name="description" placeholder="Description de la vidéo :" style="margin-right: 5px; height: 270px;"><br/>
+							</div>
+							<!-- !col-md-9 -->
+						</div>
+						<!-- !row -->
 					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<select name="vid_category"><p>Matière :</p><br/>	
-								<?php foreach ($variable as $key => $value): ?>
-								<option>
-									<?php echo $var ?>
-								</option>					
-								<?php endforeach ?>
-							</select><br/>
-							<select name="vid_grade"><p>Classe</p><br/>
-								<?php foreach ($variable as $key => $value): ?>
-								<option>
-									<?php echo $var ?>
-								</option>					
-								<?php endforeach ?>
-							</select>
-						</div>
-						<!-- !col-md-3 -->
-						<div class="col-md-9">
-							<input type="text" id="valider" name="vid_description" placeholder="Description de la vidéo :" style="margin-right: 5px; height: 270px;"><br/>
-						</div>
-						<!-- !col-md-9 -->
-					</div>
-					<!-- !row -->
-				</div>
-				<!-- !infos_upload_content -->						
-			<input type='submit' name="envoyer" value=' '>
+					<!-- !infos_upload_content -->						
+				<input type='submit' name="envoyer" value=' '>
+			</div>
 			</form>
 
 		</div>

@@ -1,6 +1,7 @@
 /* BODY */
 	body{
 	}
+
 /************************************************/
 
 /* HEADER */
@@ -114,6 +115,162 @@
 		padding: 20px 0;
 		margin:auto 0;
 	}
+/************************************************/
+
+/* PROFIL */
+	/***/ /* Classement */ /***/
+#profil #profil_classement{
+	width: 80%;
+	border-radius:20px;
+	background-color: ;
+	color: #fff;
+}
+#profil #profil_classement_title{
+	background-color: #2d3e50;
+	padding: 5px 0 10px 0;
+	text-align:center;
+	border-radius: 20px 20px 0 0;
+}
+#profil #profil_classement_content{
+	background-color: #bec3c7;
+	padding: 15px 0 10px 0;
+	text-align:center;
+	border-radius: 0 0 20px 20px;
+	color: #000;
+}
+	/***/ /* Bloc onglets+infos utilisateur */ /***/
+#profil #profil_custuser{
+	background-color: #2d3e50;
+	padding: 0 15px 15px 15px;
+	margin: 25px auto;
+}
+#profil #profil_custuser #myTab a:hover{
+	background-color: #16a086;
+}
+#profil .nav{
+	
+}
+	/***/ /* Textes */ /***/
+#profil #profil_custuser h3{
+	color: #fff;
+}
+#profil #profil_custuser .col-md-4{
+	text-align: center;
+	margin: 0 15px;
+	width: 30%
+}
+#profil #profil_custuser #myTab .nav-tabs .col-md-4:hover{
+	background-color: #16a086;
+}
+#profil #profil_custuser p{
+	margin-bottom: 0px;
+}
+	/***/ /* Bloc infos */ /***/
+#profil #profil_infos_custuser{
+	background-color: #192938;
+	color: #fff;
+
+}
+
+#profil .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	background-color: #16a086;
+}
+#profil .nav-tabs > li {
+	width: 28%;
+	height: 50px;
+	margin: 0;
+}
+#profil #myTab{
+ margin: 0 auto;
+}
+#profil .nav-tabs > li > a {
+	border: 1px solid transparent;
+	border-radius: 0;
+	line-height: 1.42857;
+	margin-right: 2px;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+}
+#profil .infos_title, #profil #myTab .col-md-4{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#profil #informations_titre{
+	margin-left: 8%;
+}
+#profil #recompenses_titre{
+	margin-right: 8%;
+}
+#profil #myTabContent .field_description{
+	text-align: left;
+}
+#profil .field_content_stronk{
+	border: solid 1px #16a086;
+	margin-bottom: 20px;
+	padding: 6px 0;
+	color: #fff;
+}
+#profil .field_content{
+	background-color: #2d3e50;
+	border: solid 1px #16a086;
+	margin-bottom: 20px;
+	padding: 6px 0;
+	color: #fff;
+}
+#profil .field_content input{
+	background-color: #2d3e50;
+	color: #fff;
+	border: none;
+	text-align: center;
+	width: 100%;
+}
+#profil .valider{
+	background-color: #192938;
+	color: #25b6ae;
+	border:none;
+	width:100px;
+	padding: 0;
+	margin-top: 18px;
+	border: solid 1px #16a086;
+	border-radius: 2px;
+	height: 30px;
+}
+#profil .cancel{
+	padding-top: 8px;
+}
+#profil .cancel a{
+	padding-bottom: 8px;
+}
+#profil #myTabContent .row{
+ padding-top: 25px; 
+}
+#profil #myTabContent .unset{
+	border: none;
+}
+#profil .tab-pane{
+	height: 430px;
+}
+#profil .formulaire{
+	height: 620px;
+}
+#profil .badges, .trophees{
+	height: 200px;
+}
+#profil .fade {
+	display: none;
+	opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear;	
+}
+#profil .fade.in {
+	display: block;
+	opacity: 1;
+}
 /************************************************/
 
 /* UPLOAD */
@@ -310,6 +467,9 @@
 		color: #fff;
 		background-color: #e74c3c;
 	}
-	
+		.row{
+		padding: 0 0;
+		margin: 0 0;
+	}
 
 /************************************************/

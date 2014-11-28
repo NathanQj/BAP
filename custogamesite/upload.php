@@ -11,6 +11,21 @@ include 'view/_head.html';
 ********************************/
 if (utilisateur_est_connecte()) 
 {
+
+				$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+				$req->execute(
+					array(
+						'username' => $_SESSION['username']
+						)
+					);
+					while ($datas = $req->fetch())
+				{ 
+
+					$username = $datas['username']; 
+
+				}
+
+
 	//si l'utilisateur valide le formulaire
 	if(isset($_POST) && !empty($_POST)){
 
@@ -36,13 +51,26 @@ if (utilisateur_est_connecte())
 			'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
 			'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
 			$fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-			if(move_uploaded_file($_FILES['custo']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+			if(move_uploaded_file($_FILES['custo']['tmp_name'], $dossier . $fichier)) 
+			//Si la fonction renvoie TRUE, c'est que le fichier a bien été envoyé dans le dossier.
 			{
-			echo 'Upload effectué avec succès !';
-			}
-			else //Sinon (la fonction renvoie FALSE).
-			{
-			echo 'Echec de l\'upload !';
+				if (isset($_POST['title']) && !empty($_POST['title'])
+					&& isset($_POST['description']) && !empty($_POST['description']))
+				{				
+							$request = $db->prepare('INSERT INTO videos (filename, title, description, date, auteur) 
+														VALUES (:filename, :title, :description, now(), :auteur)');
+
+							$request->execute(
+								array(
+									'filename' => $fichier,
+									'title' => $_POST['title'],
+									'description' => $_POST['description'],
+									'auteur' => $username,
+									)
+								);
+				echo 'Upload effectué avec succès !';
+				header('Location:upload.php');
+				}
 			}
 		}
 		else
