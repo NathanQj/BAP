@@ -46,9 +46,11 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 
 	$request->closeCursor();
 
+
 	// if : username ou pass incorrect
-	echo 'Pseudo et/ou mot de passe incorrects';
-	header('Location:login.php');
+	echo "<div id=\"error\"> Pseudo et/ou mot de passe incorrects </div>";
+	
+	header('Location:index.php'); 
 }
 
 /******************************** 
