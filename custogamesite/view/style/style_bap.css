@@ -169,9 +169,7 @@
 #profil #profil_infos_custuser{
 	background-color: #192938;
 	color: #fff;
-
 }
-
 #profil .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
 	background-color: #16a086;
 }
@@ -181,7 +179,8 @@
 	margin: 0;
 }
 #profil #myTab{
- margin: 0 auto;
+	margin: 0 auto;
+	border: none;
 }
 #profil .nav-tabs > li > a {
 	border: 1px solid transparent;
@@ -198,6 +197,9 @@
 	text-align: center;
 	margin: 0;
 	padding: 0;
+}
+#profil #myTab .infos_title{
+	padding-top: 3px;
 }
 #profil #informations_titre{
 	margin-left: 8%;
@@ -273,7 +275,9 @@
 }
 /************************************************/
 
-/* UPLOAD */
+/* UPLOAD & POST UPLOAD */
+
+	/***/ /* Upload vidéo */ /***/
 	#upload{
 		background-color: #2d3e50;
 		width: 100%;
@@ -342,6 +346,32 @@
 		margin: 20px 0;
 	}
 
+	/***/ /* Post Upload */ /***/
+	#upload #post_upload{
+		color: #fff;
+		padding-bottom: 40px;
+		background-color: #2d3e50;
+	}
+	#upload #post_upload p{
+		border: 1px solid #000;
+		background-color: #2d3e50;
+		text-align: left;
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+	}
+	#upload #post_upload #titre_video{
+		margin-top: 10px;
+		text-align: center !important;
+		padding-left: 0;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	#upload #post_upload #vid_upload_content iframe{
+		width: 100%;
+		height: 100%;
+	}	
 /************************************************/
 
 /* CONTACT */

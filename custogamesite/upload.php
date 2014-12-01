@@ -19,9 +19,10 @@ if (utilisateur_est_connecte())
 						)
 					);
 					while ($datas = $req->fetch())
-				{ 
+				{
 
-					$username = $datas['username']; 
+					$username = $datas['username'];
+					$auteur_id = $datas['id'];
 
 				}
 
@@ -57,8 +58,8 @@ if (utilisateur_est_connecte())
 				if (isset($_POST['title']) && !empty($_POST['title'])
 					&& isset($_POST['description']) && !empty($_POST['description']))
 				{				
-							$request = $db->prepare('INSERT INTO videos (filename, title, description, date, auteur) 
-														VALUES (:filename, :title, :description, now(), :auteur)');
+							$request = $db->prepare('INSERT INTO videos (filename, title, description, date, auteur, auteur_id) 
+														VALUES (:filename, :title, :description, now(), :auteur, :auteur_id)');
 
 							$request->execute(
 								array(
@@ -66,10 +67,11 @@ if (utilisateur_est_connecte())
 									'title' => $_POST['title'],
 									'description' => $_POST['description'],
 									'auteur' => $username,
+									'auteur_id' => $auteur_id,
 									)
 								);
 				echo 'Upload effectué avec succès !';
-				header('Location:upload.php');
+				header('Location:post_upload.php');
 				}
 			}
 		}

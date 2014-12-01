@@ -1,0 +1,77 @@
+<div id="upload">
+	<div class="container" style="padding-left: 0px; padding-right: 0px;">
+		<div id="post_upload">
+			<div id="vid_upload">
+				<div class="row" style="margin-left: 0px; margin-right: 0px;">			
+					<div class="col-md-4 title_sides"></div>
+						<h2 class="col-md-4 orange_div">Résumé de ta vidéo</h2>
+					<div class="col-md-4 title_sides"></div>
+				</div>
+
+	<?php
+					$req = $db->prepare('SELECT * FROM videos WHERE auteur_id = :auteur_id ORDER BY id DESC limit 0,1');
+					$req->execute(
+						array(
+							'auteur_id' => $auteur_id,
+							)
+						);
+						while ($datas = $req->fetch())
+					{
+	?>
+
+
+				<div id="vid_upload_content">
+						<!-- On limite le fichier à 100Ko -->
+						<iframe src="upload/<?php echo $datas['filename']; ?>"></iframe>
+				</div>
+				<!-- !vid_upload_content -->
+			</div>
+			<!-- !vid_upload -->
+
+			<div id="infos_upload">
+				<div class="row" style="margin-left: 0px; margin-right: 0px;">			
+					<div class="col-md-4 title_sides"></div>
+						<h2 class="col-md-4 orange_div">Infos sur la vidéo</h2>
+					<div class="col-md-4 title_sides"></div>
+				</div>
+
+				<div id="infos_upload_content">	
+					<div class="row">
+						<div class="col-md-12">
+							<p id="titre_video">Titre : <?php echo $datas['title']; ?> </p><br/>
+						</div>
+						<!-- !col-md-12 -->
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+								<p>Matière :<br/>	
+								<?php echo $datas['category']; ?></p>
+							<br/>
+							<p>Classe :<br/>
+							<?php echo $datas['grade']; ?></p>
+						</div>
+						<!-- !col-md-3 -->
+						<div class="col-md-9">
+							<p>Description :<br/>
+							<?php echo $datas['description']; ?></p>
+						</div>
+						<!-- !col-md-9 -->
+					</div>
+					<!-- !row -->
+				</div>
+				<!-- !infos_upload_content -->
+			</div>
+			<!-- !infos_upload -->
+	<?php
+					}
+
+	?>		
+		</div>
+		<!-- !post_upload -->
+
+		<p>Votre vidéo doit être validée par un administrateur avant d'être publiée</p>
+
+	</div>
+	<!-- !container -->
+</div>
+<!-- !upload -->
