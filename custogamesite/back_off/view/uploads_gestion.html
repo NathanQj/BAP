@@ -4,17 +4,73 @@
 
 
 
-			<?php foreach ($img as $key => $value) { ?> 
-			
-		<div>
-				<img src="../upload/<?php echo $value['name']; ?>">
+<?php
+	$req = $db->prepare('SELECT * FROM videos ORDER BY auteur DESC');
+	$req->execute(
+		array(
+			)
+		);
+		while ($datas = $req->fetch())
+	{
+		echo $datas['id'];
+
+?>
+	<div class="row" style="background-color:#efefef; margin: 10px 0;">
+		<div class="col-md-4">
+			<div id="vid_upload">
+				<h2>Contenu de la vidéo</h2>
+			</div>
+			<!-- !vid_upload -->
+			<div id="vid_upload_content">
+				<iframe src="./upload/<?php echo $datas['filename']; ?>"></iframe>
+			</div>
+			<!-- !vid_upload_content -->
 		</div>
+		<!-- !col-md-4 -->
 
-
-
-
-			<?php 
-			} 
+		<div class="col-md-5">
+			<h2>Infos sur la vidéo</h2>
+			<p id="titre_video">Titre : <?php echo $datas['title']; ?> </p><br/>
+			<p>Matière :<br/>	
+			<?php echo $datas['category']; ?></p>
+			<br/>
+			<p>Classe :<br/>
+			<?php echo $datas['grade']; ?></p>
+			<p>Description :<br/>
+			<?php echo $datas['description']; ?></p>
+			<p>Auteur : <?php echo $datas['auteur']; ?></p>
+		</div>
+		<!-- !col-md-5 -->
+		<div class="col-md-3">
+			<h2>Validation :</h2>
+			<form action="validation.php?id=<?php echo $datas['id']; ?>" method="post">
+				<input type="checkbox" name="validation" value="ok">  OK</input><br/>
+				<input type="checkbox" name="validation" value="nope">  Refuser</input><br>
+				<input type="submit" value="Valider"></input>	
+			</form><br/>
+			<?php if ($datas['validation'] == 'ok'){
 			?>
+			<div class="validee" style="padding:5px; background-color:green; color:white;">Validée</div>
+			<?php
+			} 
+			elseif ($datas['validation'] == 'nope')
+			{
+			?>
+			<div class="refusee" style="padding:5px; background-color:red; color:white;">Refusée</div>			
+			<?php	
+			}
+			elseif ($datas['validation'] == 'En cours')
+			{
+			?>
+			<div class="en-attente" style="padding:5px; background-color:orange; color:white;">En attente</div>	
+			<?php
+			}
+			?>
+		</div>
 	</div>
+	<!-- !row -->
+<?php
+		} 
+?>
+</div>
 

@@ -1,0 +1,36 @@
+<div id="discover">
+	<div id="recherche">
+		<form>
+			<h2>Recherche</h2>
+			<input type="text"></input>
+			<h3>Choix du niveau</h3>
+			<div class="row">
+				<div class="col-md-3">
+				</div>				
+				<div class="col-md-3">
+					<select name="vid_category"><p>Matière :</p><br/>	
+						<?php foreach ($variable as $key => $value): ?>
+						<option>
+							<?php echo $var ?>
+						</option>					
+						<?php endforeach ?>
+					</select><br/>
+				</div>
+				<div class="col-md-3">
+					<select name="vid_grade"><p>Classe</p><br/>
+						<?php foreach ($variable as $key => $value): ?>
+						<option>
+							<?php echo $var ?>
+						</option>					
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="col-md-3">
+				</div>
+			</div>
+			<input type="submit" value="Rechercher" class="bluebox"></input>
+		</form>
+	</div>
+	<!-- !recherche -->
+</div>
+<!-- !discover -->

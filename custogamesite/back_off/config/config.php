@@ -15,6 +15,12 @@ catch(PDOException $e){
 }
 
 
+
+
+//Variables:
+
+$valid_default = 'En cours';
+
 // Vérifie si l'utilisateur est connecté   
 function utilisateur_est_connecte() {
  
@@ -22,10 +28,11 @@ function utilisateur_est_connecte() {
 }
 
 function user_is_admin() {
-
-	if($_SESSION['username'] == 'Custorial'){
-		
-		return true;
+	if(utilisateur_est_connecte()){
+		if($_SESSION['username'] == 'Custorial'){
+			
+			return true;
+		}	
 	}
 }
 
@@ -43,3 +50,18 @@ function user_is_admin() {
 	return $result; 
 }
 
+// Classement des joueurs :
+
+	function SelectUsersFromClassement(PDO $db){
+	
+	$sql = ('SELECT username FROM users ORDER BY xp DESC limit 0,3');
+
+	$req = $db->prepare($sql);
+	$req->execute();
+
+	$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+	//on retourne le tableau de résultats
+	return $result;
+
+	}

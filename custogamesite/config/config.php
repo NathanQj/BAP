@@ -19,6 +19,8 @@ catch(PDOException $e){
 
 //Variables:
 
+$valid_default = 'En cours';
+
 // Vérifie si l'utilisateur est connecté   
 function utilisateur_est_connecte() {
  
@@ -38,28 +40,37 @@ function user_is_admin() {
 
 	function SelectAllImages(PDO $db) {
 
-	$sql = "SELECT picture FROM users"; 
+		$sql = "SELECT picture FROM users"; 
 
-	$req = $db->prepare($sql); 
-	$req->execute(); 
+		$req = $db->prepare($sql); 
+		$req->execute(); 
 
-	$result = $req->fetchAll(PDO::FETCH_ASSOC);
+		$result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-	return $result; 
+		return $result; 
 }
 
 // Classement des joueurs :
 
 	function SelectUsersFromClassement(PDO $db){
-	
-	$sql = ('SELECT username FROM users ORDER BY xp DESC limit 0,3');
+		
+		$sql = ('SELECT username FROM users ORDER BY xp DESC limit 0,3');
 
-	$req = $db->prepare($sql);
-	$req->execute();
+		$req = $db->prepare($sql);
+		$req->execute();
 
-	$result = $req->fetchAll(PDO::FETCH_ASSOC);
+		$result = $req->fetchAll(PDO::FETCH_ASSOC);
 
-	//on retourne le tableau de résultats
-	return $result;
-
+		//on retourne le tableau de résultats
+		return $result;
 	}
+
+// Récupération des vidéos dans la BDD : 
+	function SelectVideosFromBDD(PDO $db){
+		$req = $db->prepare('SELECT * FROM videos ORDER BY auteur DESC');
+		$req->execute(array());
+
+		$datas = $req->fetchAll(PDO::FETCH_ASSOC);
+		return $datas;
+	}
+

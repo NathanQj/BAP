@@ -58,8 +58,8 @@ if (utilisateur_est_connecte())
 				if (isset($_POST['title']) && !empty($_POST['title'])
 					&& isset($_POST['description']) && !empty($_POST['description']))
 				{				
-							$request = $db->prepare('INSERT INTO videos (filename, title, description, date, auteur, auteur_id) 
-														VALUES (:filename, :title, :description, now(), :auteur, :auteur_id)');
+							$request = $db->prepare('INSERT INTO videos (filename, title, description, date, auteur, auteur_id, validation) 
+														VALUES (:filename, :title, :description, now(), :auteur, :auteur_id, :validation)');
 
 							$request->execute(
 								array(
@@ -68,6 +68,7 @@ if (utilisateur_est_connecte())
 									'description' => $_POST['description'],
 									'auteur' => $username,
 									'auteur_id' => $auteur_id,
+									'validation' => $valid_default,
 									)
 								);
 				echo 'Upload effectué avec succès !';

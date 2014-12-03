@@ -14,7 +14,6 @@ include 'view/_head.html';
 /******************************** 
 			VIEW 
 ********************************/
-
 include 'view/_menu.php';
 include 'view/discover.html';
 include 'view/_footer.html';

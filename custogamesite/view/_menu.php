@@ -10,7 +10,6 @@
 	<nav id="menu">
 		<ul>
 			<a href="index.php"><li>Accueil</li></a>
-			<a href="discover.php"><li>Decouvrir</li></a>
 			<?php if (utilisateur_est_connecte()) { 
 
 				$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
@@ -30,6 +29,8 @@
 			<a href="register.php"><li>Inscription</li></a>
 			<a href="login.php"><li>Se connecter</li></a>
 			<?php } ?>
+			<a href="lots.php"><li>Lots</li></a>
+			<a href="discover.php"><li>Decouvrir</li></a>
 			<a href="contact.php"><li>Contact</li></a>
 			<?php if(user_is_admin()){ ?>
 			<a href="back_off"><li>Accès au back office</li></a>		
