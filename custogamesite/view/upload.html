@@ -35,24 +35,36 @@
 						</div>
 						<div class="row">
 							<div class="col-md-3">
-								<select name="vid_category"><p>Matière :</p><br/>	
-									<?php foreach ($variable as $key => $value): ?>
+								<select name="cat_name"><p>Matière :</p><br/>	
+									<?php
+										$req = $db->prepare('SELECT * FROM videos_categories ORDER BY cat_name ASC');
+										$req->execute(
+											array());
+										while ($category = $req->fetch(PDO::FETCH_ASSOC))
+										{
+											?>
 									<option>
-										<?php echo $var ?>
+										<?php echo $category['cat_name']; ?>
 									</option>					
-									<?php endforeach ?>
+									<?php } ?>
 								</select><br/>
-								<select name="vid_grade"><p>Classe</p><br/>
-									<?php foreach ($variable as $key => $value): ?>
+								<select name="grade_name"><p>Classe</p><br/>
+									<?php 
+										$req = $db->prepare('SELECT * FROM videos_grades ORDER BY grade_name ASC');
+										$req->execute(
+											array());
+										while ($grade = $req->fetch(PDO::FETCH_ASSOC))
+										{
+											?>
 									<option>
-										<?php echo $var ?>
+										<?php echo $grade['grade_name']; ?>
 									</option>					
-									<?php endforeach ?>
+									<?php } ?>
 								</select>
 							</div>
 							<!-- !col-md-3 -->
 							<div class="col-md-9">
-								<input type="text" id="valider" name="description" placeholder="Description de la vidéo :" style="margin-right: 5px; height: 270px;"><br/>
+								<textarea rows="5" cols="50" id="valider" name="description" placeholder="Description de la vidéo :" size="4"></textarea><br/>
 							</div>
 							<!-- !col-md-9 -->
 						</div>

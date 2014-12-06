@@ -10,12 +10,11 @@ $req->execute(
 		)
 	);
 
-while ($datas = $req->fetch())
+while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 {
 	?>
 <!-- PROFIL -->
 <div id="profil">
-
 	<div class="container" id="profile_header">
 		<div class="row">
 			<div class="col-md-4">
