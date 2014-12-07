@@ -311,7 +311,9 @@
 			border:solid #000;
 			border-width:  0 2px 2px 0;
 	}
-	
+	#discover select{
+		color: #000;
+	}
 /************************************************/
 
 /* UPLOAD & POST UPLOAD */
@@ -413,6 +415,45 @@
 		width: 100%;
 		height: 100%;
 	}	
+/************************************************/
+
+/* LOTS */
+
+	#lots{
+		background-color: #2d3e50;
+		width: 100%;
+		color: #fff;
+	}
+	#lots #lot_n2{
+		background-color: #1a2938;
+	}
+	#lot_n1, #lot_n2, #lot_n3{
+		padding: 20px 0;
+	}
+	/***/ /* Photos lots */ /***/
+	#lots .photo_lot{
+	}
+	#lots .photo_lot img{
+		height: 450px;
+		width: 450px;
+		border: solid 1px #16a086;
+		border-radius: 500%;
+	}
+	/***/ /* Description lots */ /***/
+	#lots .descri_lot p{
+		border: solid 1px #16a086;
+		background-color: #2d3e50;
+		color: #fff;
+		padding: 20px;
+	}
+
+	#lots #lot_n2 .descri_lot p{
+		border: solid 1px #16a086;
+		background-color: #1a2938;
+		color: #fff;
+		padding: 20px;
+	}	
+
 /************************************************/
 
 /* CONTACT */

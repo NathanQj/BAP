@@ -8,21 +8,34 @@
 				<div class="col-md-3">
 				</div>				
 				<div class="col-md-3">
-					<select name="vid_category"><p>Matière :</p><br/>	
-						<?php foreach ($variable as $key => $value): ?>
+					<select name="vid_category"><p>Matière :</p><br/
+						<?php
+							$req = $db->prepare('SELECT * FROM videos_categories ORDER BY cat_name ASC');
+							$req->execute(
+								array());
+							while ($category = $req->fetch(PDO::FETCH_ASSOC))
+							{
+								?>
 						<option>
-							<?php echo $var ?>
+							<?php echo $category['cat_name']; ?>
 						</option>					
-						<?php endforeach ?>
-					</select><br/>
+						<?php } ?>
+					</select>
+					<br/>
 				</div>
 				<div class="col-md-3">
-					<select name="vid_grade"><p>Classe</p><br/>
-						<?php foreach ($variable as $key => $value): ?>
+					<select name="grade_name"><p>Classe</p><br/>
+						<?php 
+							$req = $db->prepare('SELECT * FROM videos_grades ORDER BY grade_name ASC');
+							$req->execute(
+								array());
+							while ($grade = $req->fetch(PDO::FETCH_ASSOC))
+							{
+								?>
 						<option>
-							<?php echo $var ?>
+							<?php echo $grade['grade_name']; ?>
 						</option>					
-						<?php endforeach ?>
+						<?php } ?>
 					</select>
 				</div>
 				<div class="col-md-3">
