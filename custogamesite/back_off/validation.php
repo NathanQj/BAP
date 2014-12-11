@@ -19,5 +19,9 @@ if(isset($_POST) && !empty($_POST)){
 		'validation' => $_POST['validation'],
 		'id' => $_GET['id'],
 	));
+
+	if($_POST['validation'] == 'ok'){
+				
+	}
 	header('Location: uploads_gestion.php');
 }

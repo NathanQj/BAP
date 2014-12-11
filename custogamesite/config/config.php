@@ -74,3 +74,10 @@ function user_is_admin() {
 		return $datas;
 	}
 
+
+// Configuration des photos de profil:
+	function AttributeProfilPicture(PDO $db){
+
+
+	}
+

@@ -1,4 +1,4 @@
-<div class="container"><?php
+<div class="container" id="user_gestion"><?php
 
 $result = $db->query('SELECT * FROM users WHERE user_role=1');
 	while ($datas = $result->fetch())
@@ -11,7 +11,8 @@ $result = $db->query('SELECT * FROM users WHERE user_role=1');
 		Lycée : <?php echo $datas['lycee']; ?><br/>
 		Classe : <?php echo $datas['classe']; ?><br/>
 		Age : <?php echo $datas['age']; ?><br/>
-		Email : <em><?php echo $datas['email']; ?></em>
+		Email : <em><?php echo $datas['email']; ?></em><br/>
+		Grade : <img src="../<?php echo $datas['picture']; ?>" id="pic">
 		</p>
 		<div>
 			<a href="delete_user.php?id=<?php echo $datas['id']; ?>" class="button">Supprimer le compte</a>

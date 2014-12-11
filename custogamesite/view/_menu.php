@@ -1,11 +1,14 @@
 	<div id="header">
 		<img src="view/img/logo.png" id="logo" alt='logo'>
 		<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
+		<?php 
+			if(isset($_SESSION['username']) && !empty($_SESSION['username'])){?> 
 		<div  class="disconnect">
-			<?php echo $_SESSION['username']; ?>
+			<?php  echo $_SESSION['username']; ?>
 			<br/>
 			<a href="logout.php">Déconnexion</a>
 		</div>
+		<?php }?>
 	</div><!-- !#header -->
 	<nav id="menu">
 		<ul>
@@ -21,7 +24,7 @@
 					while ($datas = $req->fetch())
 				{ 
 				?>
-			<a href="profil.php?<?php echo $datas['username']; ?>"><li>Profil</li></a>
+			<a href="profil.php?username=<?php echo $datas['username']; ?>"><li>Profil</li></a>
 			<a href="upload.php"><li>Publier une vidéo</li></a>
 			<?php 
 				}

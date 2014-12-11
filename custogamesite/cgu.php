@@ -4,6 +4,7 @@
 	 DATABASE & FUNCTIONS 
 ********************************/
 require('config/config.php');
+require('config/session.php');
 include 'view/_head.html';
 /******************************** 
 			PROCESS 

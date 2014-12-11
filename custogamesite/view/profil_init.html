@@ -1,0 +1,46 @@
+<?php 
+$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+$req->execute(
+	array(
+		'username' => $_GET['username']
+		)
+	);
+
+while ($datas = $req->fetch(PDO::FETCH_ASSOC))
+{
+
+	$user_id = $datas['id'];
+	$user_username = $datas['username'];
+	$user_first_name = $datas['first_name'];
+	$user_last_name = $datas['last_name'];
+	$user_sexe = $datas['sexe'];
+	$user_email = $datas['email'];
+	$user_xp = $datas['xp'];
+	$user_has_uploaded = $datas['has_uploaded'];
+	$user_profil_complete = $datas['profil_complete'];
+
+
+		if($user_xp <= 99){
+			$user_picture = 'view/img/profiles/wood.png';
+		}elseif ($user_xp >= 100 && $user_xp <= 249) {
+			$user_picture = 'view/img/profiles/bronze.png';
+		}elseif ($user_xp >= 250 && $user_xp <= 599) {
+			$user_picture = 'view/img/profiles/silver.png' ;
+		}elseif ($user_xp >= 600 && $user_xp <= 999) {
+			$user_picture = 'view/img/profiles/gold.png';
+		}elseif ($user_xp >= 1000) {
+			$user_picture = 'view/img/profiles/diam.png';
+		}
+
+
+		$request = $db->prepare('UPDATE users 
+		SET picture = :picture WHERE username = :username');
+			
+			$request->execute(
+			array(
+				'picture' => $user_picture,
+				'username' => $user_username,
+				)
+			);
+		}
+?>

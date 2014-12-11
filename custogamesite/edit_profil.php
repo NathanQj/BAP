@@ -45,7 +45,8 @@ include 'view/_head.html';
 															password = :password, 
 															email = :email, 
 															lycee = :lycee, 
-															classe = :classe 
+															classe = :classe,
+															profil_complete = :profil_complete
 																WHERE username = :username');
 							$request->execute(
 								array(
@@ -55,7 +56,8 @@ include 'view/_head.html';
 									'password' => $_POST['password'],
 									'email' => $_POST['email'],					
 									'lycee' => $_POST['lycee'],
-									'classe' => $_POST['classe']
+									'classe' => $_POST['classe'],
+									'profil_complete' => 1,
 									)
 								);
 

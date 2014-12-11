@@ -10,7 +10,17 @@ if (utilisateur_est_connecte())
 		);
 	while ($datas = $req->fetch())
 	{ 
-	?>
+		$user_id = $datas['id'];
+		$user_username = $datas['username'];
+		$user_first_name = $datas['first_name'];
+		$user_last_name = $datas['last_name'];
+		$user_sexe = $datas['sexe'];
+		$user_email = $datas['email'];
+		$user_picture = $datas['picture'];
+		$user_xp = $datas['xp'];
+		$user_has_uploaded = $datas['has_uploaded'];
+		$user_profil_complete = $datas['profil_complete'];
+?>
 	<div class="container">
 		<form action="edit_profil.php" method="post">
 			Prénom : <input type="text" name="first_name" value="<?php echo htmlspecialchars($datas['first_name']); ?>"><br/>

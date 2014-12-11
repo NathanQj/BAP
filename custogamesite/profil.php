@@ -22,6 +22,7 @@ else
 ********************************/
 
 include 'view/_menu.php';
+include 'view/profil_init.html';
 include 'view/profil.html';
 include 'view/_footer.html';
 

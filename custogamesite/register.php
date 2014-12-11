@@ -37,11 +37,12 @@ if (!utilisateur_est_connecte()){
 	                	//On vérifie si le mail et celui de la vérification sont identiques
 	                	if($_POST['email']==$_POST['mailverif'])
 	                	{
-
 							session_unset();
 
-							$request = $db->prepare('INSERT INTO users (first_name, last_name, username, password, email, user_registered) 
-														VALUES (:first_name, :last_name, :username, :password, :email, now())');
+							$rq_xp_inscript = 20;
+
+							$request = $db->prepare('INSERT INTO users (first_name, last_name, username, password, email, xp, user_registered) 
+														VALUES (:first_name, :last_name, :username, :password, :email, :xp, now())');
 
 							$request->execute(
 								array(
@@ -50,6 +51,7 @@ if (!utilisateur_est_connecte()){
 									'username' => $_POST['username'],
 									'password' => $_POST['password'],
 									'email' => $_POST['email'],
+									'xp' => $rq_xp_inscript,
 									)
 								);
 
