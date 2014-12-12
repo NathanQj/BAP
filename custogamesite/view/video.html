@@ -1,0 +1,58 @@
+<div id="upload">
+	<?php
+					$req = $db->prepare('SELECT * FROM videos WHERE id = :id');
+					$req->execute(
+						array(
+							'id' => $_GET['id'],
+							)
+						);
+						while ($datas = $req->fetch())
+					{
+	?>	
+	<div class="container" style="padding-left: 0px; padding-right: 0px;">
+		<div id="post_upload">
+			<div id="vid_upload">
+				<div class="row" style="margin-left: 0px; margin-right: 0px;">			
+					<div class="col-md-4 title_sides"></div>
+						<h2 class="col-md-4 orange_div"><?php echo $datas['title']; ?></h2>
+					<div class="col-md-4 title_sides"></div>
+				</div>
+				<div id="vid_upload_content">
+					<embed width="100%" height="100%" name="plugin" src="upload/<?php echo $datas['filename']; ?>" type="video/x-ms-wmv" autoplay="false">
+				</div>
+				<!-- !vid_upload_content -->
+
+				<div id="infos_upload">
+					<div id="infos_upload_content">	
+						<div class="row">
+							<div class="col-md-3">
+									<p><?php echo $datas['category']; ?>, <?php echo $datas['grade']; ?></p>
+							</div>
+							<!-- !col-md-3 -->
+							<div class="col-md-9">
+								<p>Description :<br/>
+								<?php echo $datas['description']; ?></p>
+							</div>
+							<!-- !col-md-9 -->
+						</div>
+						<!-- !row -->
+					</div>
+					<!-- !infos_upload_content -->
+				</div>
+				<!-- !infos_upload -->
+
+			</div>
+			<!-- !vid_upload -->
+
+			
+	<?php
+					}
+					if ($datas['validation'] == 'nope' OR $datas['validation'] == 'En attente'){
+						header('Location:login.php');
+					}
+	?>		
+		</div>
+	</div>
+	<!-- !container -->
+</div>
+<!-- !upload -->

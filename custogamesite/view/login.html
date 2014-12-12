@@ -54,24 +54,8 @@
 </script>
 
 </head>
-
-
-<?php //include_once 'index.php';?>
-
 	<div class="overlay">	
-	</div>	
-	<div class="mot_passe_oublie" name="mot_passe_oublie" id="mot_passe_oublie">
-		<div><a href="javascript:void(0);"><img id="fermeture" src="ressources/images/croix_fermeture.png"></a></div>
-		
-		<span id="formMail">
-		Vous avez oublié votre mot de passe.<br>
-		Merci de saisir votre adresse mail :<br>
-		<input type="text" value="" id="youremail">
-		<input type="submit" value="Envoyer" id="envoyerOubliMail1">
-		</span>
-		<span id="msgMail"><br/><br/>Vous allez recevoir vos informations de connexion par mail!</span>
-	</div>
-			
+	</div>			
 	<div class="main-pre">
 			<img class="logo pre-home" src="ressources/images/logo.png">
 			<div class="slider">
@@ -82,20 +66,16 @@
 				<div class="connexion">
 					<div class="inscrit">
 						<span>Vous avez deja un compte ? <strong> Connectez-vous.</strong></span>
-
 						<form action="login.php" method="post">
 							<div class="error">Email ou mot de passe érroné</div>
 
-						<?php // echo $error ?> 
+					
 						<form action="index.php" method="post">
 							<div class="error">Email ou mot de passe érroné </div>
 
 							<input type="text" name="username" placeholder="Pseudo"><br/>
 							<input type="password" name="password" placeholder="Password"><br/>
 							<input type="submit" value="Connexion" />
-							<input type="checkbox" name="keep-active" value="yes" id="keep-active" >
-							<label for="keep-active" class="check-style">Garder ma session</label>
-							<a href="javascript:void(0);" onclick="ouverture();" style="font-size:11px;color:#fff;position: relative;top: 0;left: -4px;text-decoration: underline;">Mot de passe oubli&eacute;</a>
 						</form>
 					</div>
 					<div class="pas-inscrit">

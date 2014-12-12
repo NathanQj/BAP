@@ -10,19 +10,19 @@ $req->execute(
 		)
 	);
 
-while ($datas = $req->fetch(PDO::FETCH_ASSOC))
+while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 {
 
-	$user_id = $datas['id'];
-	$user_username = $datas['username'];
-	$user_first_name = $datas['first_name'];
-	$user_last_name = $datas['last_name'];
-	$user_sexe = $datas['sexe'];
-	$user_email = $datas['email'];
-	$user_xp = $datas['xp'];
-	$user_has_uploaded = $datas['has_uploaded'];
-	$user_profil_complete = $datas['profil_complete'];
-	$user_picture = $datas['picture'];	
+	$user_id = $infos['id'];
+	$user_username = $infos['username'];
+	$user_first_name = $infos['first_name'];
+	$user_last_name = $infos['last_name'];
+	$user_sexe = $infos['sexe'];
+	$user_email = $infos['email'];
+	$user_xp = $infos['xp'];
+	$user_has_uploaded = $infos['has_uploaded'];
+	$user_profil_complete = $infos['profil_complete'];
+	$user_picture = $infos['picture'];	
 	?>
 <!-- PROFIL -->
 <div id="profil">
@@ -79,7 +79,11 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 				<li>
 					<a href="#modif_infos" data-toggle="tab">
 						<div class="infos_title col-md-4">
+							<?php if($_SESSION['username'] == $_GET['username']){ ?>
 							Modifier mes infos
+							<?php }else{ ?>
+							Vidéos
+							<?php } ?>
 						</div>
 					</a>
 				</li>
@@ -143,7 +147,7 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 					<div class="row">
 						<div class="col-md-4">
 							<div class="field_description">Lycée :</div> 
-							<div class="field_content_stronk"><?php echo $datas['lycee']; ?></div>
+							<div class="field_content_stronk"><?php echo $infos['lycee']; ?></div>
 						</div>
 						
 						<div class="col-md-4 unset">
@@ -151,14 +155,14 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 						
 						<div class="col-md-4">
 							<div class="field_description">Classe :</div>  
-							<div class="field_content_stronk"><?php echo $datas['classe']; ?></div>
+							<div class="field_content_stronk"><?php echo $infos['classe']; ?></div>
 						</div>
 					</div>
 					
 					<div class="row">				
 						<div class="col-md-4">
 							<div class="field_description">Age :</div> 
-							<div class="field_content_stronk"><?php echo htmlspecialchars($datas['age']); ?></div>
+							<div class="field_content_stronk"><?php echo htmlspecialchars($infos['age']); ?></div>
 						</div>
 						
 						<div class="col-md-4 unset">
@@ -171,67 +175,104 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 					</div>
 				</p>
 				</div>
-				<div class="tab-pane fade formulaire" id="modif_infos">
-					<form action="edit_profil.php" method="post">
-						
-						<div class="row">
-						<div class="col-md-4 unset"></div>
-							<div class="col-md-4">
-								<div class="field_description">Pseudo : </div>
-								<div class="field_content"><input type="text" name="username" value="<?php echo htmlspecialchars($datas['username']); ?>"></div>
-							</div>
-						<div class="col-md-4 unset"></div>
+				<?php if($_SESSION['username'] == $_GET['username']){ ?>
+					<div class="tab-pane fade formulaire" id="modif_infos">
+						<div>
+							<form action="edit_profil.php" method="post">
+								
+								<div class="row">
+								<div class="col-md-4 unset"></div>
+									<div class="col-md-4">
+										<div class="field_description">Pseudo : </div>
+										<div class="field_content"><input type="text" name="username" value="<?php echo htmlspecialchars($infos['username']); ?>"></div>
+									</div>
+								<div class="col-md-4 unset"></div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-4">
+										<div class="field_description">Prénom : </div>
+										<div class="field_content"><input type="text" name="first_name" value="<?php echo htmlspecialchars($infos['first_name']); ?>"></div>
+									</div>
+									<div class="col-md-4 unset"></div>
+									<div class="col-md-4">
+										<div class="field_description">Nom : </div>
+										<div class="field_content"><input type="text" name="last_name" value="<?php echo htmlspecialchars($infos['last_name']); ?>"></div>
+									</div>				
+								</div>						
+								<div class="row">
+									<div class="col-md-4">
+										<div class="field_description">Mot de Passe : (>6 caractères)</div>
+										<div class="field_content"><input type="password" name="password" value="<?php echo htmlspecialchars($infos['password']); ?>"></div>
+									</div>
+									<div class="col-md-4 unset"></div>
+									<div class="col-md-4">
+										<div class="field_description">Confirmation : </div>
+										<div class="field_content"><input type="password" name="passverif" value="<?php echo htmlspecialchars($infos['password']); ?>"></div>
+									</div>		
+								</div>		
+
+								<div class="row">
+									<div class="col-md-4">						
+										<div class="field_description">E-mail : </div>
+										<div class="field_content"><input type="mail" name="email" value="<?php echo htmlspecialchars($infos['email']); ?>"></div>
+									</div>
+									<div class="col-md-4 unset"></div>
+									<div class="col-md-4">
+										<div class="field_description">Confirmation : </div>
+										<div class="field_content"><input type="email" name="mailverif" value="<?php echo htmlspecialchars($infos['email']); ?>"></div>
+									</div>		
+								</div>		
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="field_description">Lycée : </div>
+										<div class="field_content"><input type="text" name="lycee" value="<?php echo $infos['lycee']; ?>"></div>
+									</div>
+									<div class="col-md-4 unset"></div>
+									<div class="col-md-4">
+										<div class="field_description">Classe : </div>
+										<div class="field_content"><input type="text" name="classe" value="<?php echo $infos['classe']; ?>"></div>
+									</div>		
+								</div>		
+								<input type="submit" value="Modifier" class="valider"><p class="cancel"><a href="profil.php" type="button">Annuler</a><br/>Veillez à ne pas laisser de champ vide. Merci</p>
+							</form>
 						</div>
-						
-						<div class="row">
-							<div class="col-md-4">
-								<div class="field_description">Prénom : </div>
-								<div class="field_content"><input type="text" name="first_name" value="<?php echo htmlspecialchars($datas['first_name']); ?>"></div>
+					</div>
+					<?php }else{ ?>
+					<div class="tab-pane fade" id="modif_infos">
+						<div id="last_vids">
+							<div class="row" style="margin-left: 0px; margin-right: 0px;">				
+								<div id="last_vids_content">
+								<?php
+									$req = $db->prepare('SELECT * FROM videos WHERE auteur = :auteur');
+									$req->execute(
+										array(
+											'auteur' => $_GET['username'],
+											)
+										);
+										while ($datas = $req->fetch())
+									{
+										if( $datas['validation'] == 'ok'){
+								?>
+							 <div class="col-md-3" style="background-color:#fff;">
+							 	<a href="video.php?id=<?php echo $datas['id'];?>">
+							 	<h3><?php echo $datas['title']; ?></h3>
+								<img src="view/img/footer/picto_video.png">
+							 	<h4><?php echo $datas['auteur']; ?></h4>
+							 	</a>
+							 </div>
+							<?php
+										}
+									}
+							?>	
+								</div>
 							</div>
-							<div class="col-md-4 unset"></div>
-							<div class="col-md-4">
-								<div class="field_description">Nom : </div>
-								<div class="field_content"><input type="text" name="last_name" value="<?php echo htmlspecialchars($datas['last_name']); ?>"></div>
-							</div>				
-						</div>						
-						<div class="row">
-							<div class="col-md-4">
-								<div class="field_description">Mot de Passe : (>6 caractères)</div>
-								<div class="field_content"><input type="password" name="password" value="<?php echo htmlspecialchars($datas['password']); ?>"></div>
-							</div>
-							<div class="col-md-4 unset"></div>
-							<div class="col-md-4">
-								<div class="field_description">Confirmation : </div>
-								<div class="field_content"><input type="password" name="passverif" value="<?php echo htmlspecialchars($datas['password']); ?>"></div>
-							</div>		
-						</div>		
-
-						<div class="row">
-							<div class="col-md-4">						
-								<div class="field_description">E-mail : </div>
-								<div class="field_content"><input type="mail" name="email" value="<?php echo htmlspecialchars($datas['email']); ?>"></div>
-							</div>
-							<div class="col-md-4 unset"></div>
-							<div class="col-md-4">
-								<div class="field_description">Confirmation : </div>
-								<div class="field_content"><input type="email" name="mailverif" value="<?php echo htmlspecialchars($datas['email']); ?>"></div>
-							</div>		
-						</div>		
-
-						<div class="row">
-							<div class="col-md-4">
-								<div class="field_description">Lycée : </div>
-								<div class="field_content"><input type="text" name="lycee" value="<?php echo $datas['lycee']; ?>"></div>
-							</div>
-							<div class="col-md-4 unset"></div>
-							<div class="col-md-4">
-								<div class="field_description">Classe : </div>
-								<div class="field_content"><input type="text" name="classe" value="<?php echo $datas['classe']; ?>"></div>
-							</div>		
-						</div>		
-						<input type="submit" value="Modifier" class="valider"><p class="cancel"><a href="profil.php" type="button">Annuler</a><br/>Veillez à ne pas laisser de champ vide. Merci</p>
-					</form>
-				</div>
+							<!-- !row -->
+						</div>
+						<!-- !last_vids -->
+					</div>	
+				<?php } ?>
 				<div class="tab-pane fade badges" id="badges">
 				<p>jMeter is an Open Source testing software. It is 100% pure 
 				Java application for load and performance testing.</p>
@@ -245,16 +286,66 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 				</div>
 			</div>
 		</div>
+		<!-- myTabContent -->
 <script>
 		$(function () {
 		$('#myTab li:eq(1) a').tab('show');
 		});
 </script>
-	
+	</div>
+	<div class="container" style="padding-left: 0px; padding-right: 0px;">
+		<div id="last_vids">
+			<div class="row" style="margin-left: 0px; margin-right: 0px;">			
+				<div class="col-md-4"></div>
+					<h2 class="col-md-4 orange_div">Dernières vidéos</h2>
+				<div class="col-md-4"></div>
+			</div>
+			<!-- !row -->
+			<div class="row" style="margin-left: 0px; margin-right: 0px; background: #fff;">
+				<div id="last_vids_content">
+				<?php if($_SESSION['username'] == $_GET['username']){ ?>
+								<?php
+									$req = $db->prepare('SELECT * FROM videos WHERE auteur = :auteur');
+									$req->execute(
+										array(
+											'auteur' => $_GET['username'],
+											)
+										);
+										while ($datas = $req->fetch())
+									{
+										if( $datas['validation'] == 'ok'){
+								?>
+							 <div class="col-md-3" style="background-color:#fff;">
+							 	<a href="video.php?id=<?php echo $datas['id'];?>">
+							 	<h3><?php echo $datas['title']; ?></h3>
+								<img src="view/img/footer/picto_video.png">
+							 	<h4><?php echo $datas['auteur']; ?></h4>
+							 	</a>
+							 </div>
+							<?php
+										}
+									}
+							?>	
+				<?php } ?>					
+				</div>
+			</div>
+			<!-- !row -->
+		</div>
+		<!-- !last_vids -->
+	</div>
+	<!-- !container -->
 
 
 
-</div>
+
+
+
+
+
+
+
+
+
 
 </div>
 <!-- !Profil -->

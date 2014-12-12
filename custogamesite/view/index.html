@@ -50,7 +50,7 @@
 				<div class="col-md-4"></div>
 			</div>
 			<!-- !row -->
-			<div class="row" style="margin-left: 0px; margin-right: 0px;">				
+			<div class="row" style="margin-left: 0px; margin-right: 0px; background: #fff;">
 				<div id="last_vids_content">
 					<?php 
 					$result = $db->query('SELECT * FROM videos ORDER BY id DESC');
@@ -58,10 +58,12 @@
 							{
 								if ($datas['validation'] == 'ok'){								
 					 ?>
-					 <div class="col-md-3">
-					 	<h3><?php echo $datas['auteur']; ?></h3>
-						<iframe src="upload/<?php echo $datas['filename']; ?>" value="autostart=false"></iframe>
-					 	<h4><?php echo $datas['title']; ?></h4>
+					 <div class="col-md-3" style="background-color:#fff;">
+					 	<a href="video.php?id=<?php echo $datas['id'];?>">
+					 	<h3><?php echo $datas['title']; ?></h3>
+						<img src="view/img/footer/picto_video.png">
+					 	<h4><?php echo $datas['auteur']; ?></h4>
+					 	</a>
 					 </div>
 					 <?php
 					 		}

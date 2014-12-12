@@ -12,11 +12,9 @@ require('config/session.php');
 	if(isset($_SESSION['username']) OR !empty($_SESSION['username'])){
 		header('Location:index.php');
 }
-
 //Si l'utilisateur n'est pas connecté, on affiche l'index avec l'espace d'inscription/connexion
-else{
 if (isset($_POST['username']) && !empty($_POST['username'])
-	&& isset($_POST['password']) && !empty($_POST['password'])){
+&& isset($_POST['password']) && !empty($_POST['password'])){
 
 		// on détruit les variables de session qui ont pu être créees auparavent
 	session_unset();
@@ -38,23 +36,16 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 			// on remplit des variables de session qui concernent l'user connecté
 			$_SESSION['id'] = $data['id'];
 			$_SESSION['username'] = $data['username'];
-
+			$error = 'yes';
 			// redirection page d'accueil
 			header('Location:index.php');
 		}
+
 	}
-
-	$request->closeCursor();
-
-
-	// if : username ou pass incorrect
-	echo "<div id=\"error\"> Pseudo et/ou mot de passe incorrects </div>";
-	
-	header('Location:index.php'); 
+	// fin du while
 }
 
 /******************************** 
 			VIEW 
 ********************************/
 include 'view/login.html';
-}
