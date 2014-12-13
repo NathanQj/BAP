@@ -1,5 +1,4 @@
 <div id="lots">
-
 	<!-- PREMIER LOT - IPHONE6 -->
 	<div id="lot_n1">
 		<div class="row">
@@ -14,23 +13,41 @@
 				<div class="col-md-4">
 					<div class="descri_lot">
 						<h2>1. iPhone 6, 16Go</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>						
+						<p>Le tout dernier smartphone d’Apple juste pour toi ! Enfin... presque! Seulement le meilleur des Custo Killer aura le privilège de remporter ce lot unique. </p>
 					</div>
 					<!-- !descri_lot -->
+					<br>
+					<div class="profil_classement">
+						<div class="profil_classement_title">
+							<h3>Classement :</h3>
+						</div>
+						<!-- !profil_classement_title -->
+						<div class="profil_classement_content">
+							<ul>
+								<?php 
+								$i = 1;
+
+								foreach ($clsmnt1 as $key => $value) { 
+								?> 
+								<li>
+									<?php echo $i .'. '?><a href="profil.php?username=<?php echo $value['username']; ?>"><?php echo$value['username']?></a><?php echo ' - '.$value['xp'].'xp'; ?></p>
+								</li><p>
+								<?php 
+								$i <= $i++;
+								} ?>
+							</ul>
+						</div>
+						<!-- !profil_classement_content -->
+					</div>
+					<!-- !profil_classement -->	
 				</div>
 				<!-- !col-md-4 -->
-			<!-- !lot -->
 			</div>
-		<!-- !row -->
+		<!-- !lot -->
 		</div>
-	<!-- !lot_n1 -->
+	<!-- !row -->
 	</div>
-
+	<!-- !lot_n1 -->
 	<!-- DEUXIEME LOT - APPAREIL PHOTO CANON -->
 	<div id="lot_n2">
 		<div class="row">
@@ -45,22 +62,39 @@
 				<div class="col-md-4">
 					<div class="descri_lot">
 							<h2>2. Hybride Canon EOS M Noir + Obj. EF-M IS STM 18 - 55 mm f/3.5 - 5.6</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p>Cet appareil photo hybride, pratique et léger, te permettra de prendre des photos et des vidéos en full HD ! De quoi immortaliser tes années lycées et bien plus encore ou enregistrer une vidéo pour Custorial.  </p>
 					</div>
 					<!-- !descri_lot -->
+					<br>
+					<div class="profil_classement">
+						<div class="profil_classement_title">
+							<h3>Classement :</h3>
+						</div>
+						<!-- !profil_classement_title -->
+						<div class="profil_classement_content">
+							<ul>
+								<?php 
+								$i = 2;
+								foreach ($clsmnt2 as $key => $value) { 
+								?> 
+								<li>
+									<?php echo $i .'. '?><a href="profil.php?username=<?php echo $value['username']; ?>"><?php echo$value['username']?></a><?php echo ' - '.$value['xp'].'xp'; ?></p>
+								</li>
+								<?php 
+								} ?>
+							</ul>
+						</div>
+						<!-- !profil_classement_content -->
+					</div>
+					<!-- !profil_classement -->	
 				</div>
 				<!-- !col-md-4 -->
-			<!-- !lot -->
 			</div>
-		<!-- !row -->
+			<!-- !lot -->
 		</div>
-	<!-- !lot_n2 -->
+		<!-- !row -->
 	</div>
+	<!-- !lot_n2 -->
 
 	<!-- TROISIEME LOT - TABLETTE ASUS -->
 	<div id="lot_n3">
@@ -77,22 +111,88 @@
 				<div class="col-md-4">
 					<div class="descri_lot">
 						<h2>3. Tablette Asus, 10" 16Go WiFi</h2>						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+						<p>Remporte cette tablette et elle te suivra partout, que ce soit pour les cours ou les sorties. Prendre des photos, écrire tes cours, regarder un film ou bien écouter de la musique, elle te sera utile à tout moment. </p>
 					</div>
-					<!-- !col-md-4 -->
+					<!-- !descri_lot -->
+					<br>
+					<div class="profil_classement">
+						<div class="profil_classement_title">
+							<h3>Classement :</h3>
+						</div>
+						<!-- !profil_classement_title -->
+						<div class="profil_classement_content">
+							<ul>
+								<?php 
+								$i=3;
+								foreach ($clsmnt3 as $key => $value) { 
+								?> 
+								<li>
+									<?php echo $i .'. '?><a href="profil.php?username=<?php echo $value['username']; ?>"><?php echo$value['username']?></a><?php echo ' - '.$value['xp'].'xp'; ?></p>
+								</li>
+								<?php 
+								} ?>
+							</ul>
+						</div>
+						<!-- !profil_classement_content -->
+					</div>
+					<!-- !profil_classement -->					
 				</div>
-				<!-- !descri_lot -->
-			<!-- !lot -->
+				<!-- !col-md-4 -->
 			</div>
-		<!-- !row -->
+		<!-- !lot -->
 		</div>
-	<!-- !lot_n3 -->
+	<!-- !row -->
 	</div>
+	<!-- !lot_n3 -->
 
+	<!-- DEUXIEME LOT - APPAREIL PHOTO CANON -->
+	<div id="lot_n4">
+		<div class="row">
+			<div class="lot">
+				<div class="col-md-1"></div>
+				<div class="col-md-6">
+					<div class="descri_lot">
+							<h2>4. Chèques cadeaux</h2>
+						<p>
+						Entre 50€ et 10€, les chèques CADO font plaisir à tout monde. Partenaire avec plus de 500 enseignes dans divers domaines (multimédia, culture, sport, bien-être, beauté, gastronomie, voyage, ...)  tu trouveras forcement ton cadeau idéal.  <br>
+						4 et 5 : CADO chèque de 50€ <br>
+						6 au 10 : CADO chèque de 20€ <br>
+						du 11 au 20 : CADO chèque de 15€ <br>
+						du 21 au 50 : CADO chèque de 10€</p>
+					</div>
+					<!-- !descri_lot -->
+					<!-- !col-md-7 -->
+				</div>
+				<!-- !photo_lot -->
+				<div class="col-md-4">
+					<div class="profil_classement">
+						<div class="profil_classement_title">
+							<h3>Classement :</h3>
+						</div>
+						<!-- !profil_classement_title -->
+						<div class="profil_classement_content">
+							<ul>
+								<?php 	
+								$i = 4;
+								foreach ($clsmnt47 as $key => $value) { 
+								?> 
+								<li>
+									<?php echo $i .'. '?><a href="profil.php?username=<?php echo $value['username']; ?>"><?php echo$value['username']?></a><?php echo ' - '.$value['xp'].'xp'; ?></p>
+								</li>
+								<?php $i <= $i++;
+								} ?>
+							</ul>
+						</div>
+						<!-- !profil_classement_content -->
+					</div>
+					<!-- !profil_classement -->	
+				</div>
+				<!-- !col-md-4 -->
+			</div>
+			<!-- !lot -->
+		</div>
+		<!-- !row -->
+	</div>
+	<!-- !lot_n4 -->	
 </div>
 <!-- !lots -->

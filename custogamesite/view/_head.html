@@ -20,18 +20,33 @@
  		<!-- Lecteur vidéo !à placer dans le head necessairement! -->
  		<link href="//vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
 		<script src="//vjs.zencdn.net/4.11/video.js"></script>
-
-
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-		<script src="modules/facebox/js/myfacebox.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
 
 		<meta content="width=device-width, height=device-height" name="viewport">
 
 		<title>CustoGame Site</title>
 
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="modules/facebox/js/myfacebox.js"></script>
+
+		<!-- Dropzone -->
+		<script type="text/javascript" src="view/js/multiupload.js"></script>
+		<script type="text/javascript">
+		var config = {
+		// Valid file formats
+		support : "image/jpg,image/png,image/bmp,image/jpeg,image/gif",
+		form: "demoFiler", // Form ID
+		dragArea: "dragAndDropFiles", // Upload Area ID
+		uploadUrl: "upload.php" // Server side file url
+		}
+		//Initiate file uploader.
+		$(document).ready(function()
+		{
+		initMultiUploader(config);
+		});
+		</script>
 <script>
 	$(document).ready(function(){
 		$('#msgMail').hide();

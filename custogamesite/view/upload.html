@@ -8,10 +8,14 @@
 			</div>
 
 			<div id="vid_upload_content">
-				<form method="POST" action="upload.php" enctype="multipart/form-data">
-					<!-- On limite le fichier à 100Ko -->
+				<form method="POST" action="upload.php" enctype="multipart/form-data" name="demoFiler" id="demoFiler">
+					<input type="file" name="custo" id="multiUpload" multiple />
 					<input type="hidden" name="MAX_FILE_SIZE" value="25000000000">
-					<input type="file" name="custo">
+					<div class="progressBar">
+					<div class="status"></div>
+				</div>
+				<!-- On limite le fichier à 100Ko -->
+				
 
 			</div>
 			<!-- !vid_upload_content -->

@@ -34,7 +34,7 @@ if (utilisateur_est_connecte())
 		$fichier = basename($_FILES['custo']['name']);
 		$taille_maxi = 25000000000;
 		$taille = filesize($_FILES['custo']['tmp_name']);
-		$extensions = array('.avi', '.wmv', '.mov', '.h264', '.flv', '.rmvb', '.mp4');
+		$extensions = array('.avi', '.wmv', '.mov', '.h264', '.flv', '.rmvb', '.mp4', '.ogg');
 		$extension = strrchr($_FILES['custo']['name'], '.'); 
 		//Début des vérifications de sécurité...
 		if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau

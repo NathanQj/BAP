@@ -1,15 +1,17 @@
-	<div id="header">
-		<img src="view/img/logo.png" id="logo" alt='logo'>
-		<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
-		<?php 
-			if(isset($_SESSION['username']) && !empty($_SESSION['username'])){?> 
-		<div  class="disconnect">
-			<?php  echo $_SESSION['username']; ?>
-			<br/>
-			<a href="logout.php">Déconnexion</a>
-		</div>
-		<?php }?>
-	</div><!-- !#header -->
+	<a href="index.php">
+		<div id="header">
+			<img src="view/img/logo.png" id="logo" alt='logo'>
+			<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
+			<?php 
+				if(isset($_SESSION['username']) && !empty($_SESSION['username'])){?> 
+			<div  class="disconnect">
+				<a href="profil.php?username=<?php  echo $_SESSION['username']; ?>"><?php  echo $_SESSION['username']; ?></a>
+				<br/>
+				<a href="logout.php">Déconnexion</a>
+			</div>
+			<?php }?>
+		</div><!-- !#header -->
+	</a>
 	<nav id="menu">
 		<ul>
 			<a href="index.php"><li>Accueil</li></a>
@@ -42,9 +44,3 @@
 			?>
 		</ul>
 	</nav><!-- end #menu -->
-
-<!-- 	
-	<form action="#" method="post" accept-charset="utf-8">
-		<input type="text" name="recherche" value="" placeholder="Recherche...">
-	</form>
--->

@@ -11,7 +11,7 @@ if(user_is_admin()){
       VIEW 
 ********************************/
 include 'view/_header.html';
-include 'view/_menu.php';
+include 'view/_menu.html';
 include 'view/uploads_gestion.html';
 
 }

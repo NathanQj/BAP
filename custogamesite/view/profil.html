@@ -48,7 +48,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 							foreach ($clsmnt as $key => $value) { 
 							?> 
 							<li>
-								<p><?php echo $i .'. '.$value['username']; ?></p>
+								<?php echo $i .'. '?><a href="profil.php?username=<?php echo $value['username']; ?>" style="color:#2d3e50;"><?php echo$value['username']?></a><?php echo ' - '.$value['xp'].'xp'; ?></p>
 							</li>
 							<?php 
 							$i <= $i++;
@@ -59,7 +59,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 				</div>
 				<!-- !profil_classement -->
 			</div>
-			<!-- classement -->
+			<!-- classement col-md-3 -->
 		</div>
 		<!-- !row -->
 	</div>
@@ -293,6 +293,8 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 		});
 </script>
 	</div>
+
+<?php if($_SESSION['username'] == $_GET['username']){ ?>	
 	<div class="container" style="padding-left: 0px; padding-right: 0px;">
 		<div id="last_vids">
 			<div class="row" style="margin-left: 0px; margin-right: 0px;">			
@@ -301,9 +303,9 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 				<div class="col-md-4"></div>
 			</div>
 			<!-- !row -->
-			<div class="row" style="margin-left: 0px; margin-right: 0px; background: #fff;">
+			<div class="row" style="margin-left: 0px; margin-right: 0px;">
 				<div id="last_vids_content">
-				<?php if($_SESSION['username'] == $_GET['username']){ ?>
+
 								<?php
 									$req = $db->prepare('SELECT * FROM videos WHERE auteur = :auteur');
 									$req->execute(
@@ -315,7 +317,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 									{
 										if( $datas['validation'] == 'ok'){
 								?>
-							 <div class="col-md-3" style="background-color:#fff;">
+							 <div class="col-md-3" style="background-color:#000;">
 							 	<a href="video.php?id=<?php echo $datas['id'];?>">
 							 	<h3><?php echo $datas['title']; ?></h3>
 								<img src="view/img/footer/picto_video.png">
@@ -325,8 +327,8 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 							<?php
 										}
 									}
-							?>	
-				<?php } ?>					
+							?>
+				
 				</div>
 			</div>
 			<!-- !row -->
@@ -334,19 +336,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 		<!-- !last_vids -->
 	</div>
 	<!-- !container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<?php } ?>	
 </div>
 <!-- !Profil -->
 

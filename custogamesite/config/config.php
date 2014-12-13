@@ -50,11 +50,66 @@ function user_is_admin() {
 		return $result; 
 }
 
-// Classement des joueurs :
+// Classement des joueurs : (top3)
 
 	function SelectUsersFromClassement(PDO $db){
-		
-		$sql = ('SELECT username FROM users ORDER BY xp DESC limit 0,3');
+		$sql = ('SELECT username, xp FROM users ORDER BY xp DESC limit 0,3');
+
+		$req = $db->prepare($sql);
+		$req->execute();
+
+		$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+		//on retourne le tableau de résultats
+		return $result;
+	}
+
+// Classement des joueurs : (#1)
+
+	function SelectUsersFromClassement_1(PDO $db){
+		$sql = ('SELECT username, xp FROM users ORDER BY xp DESC limit 0,1');
+
+		$req = $db->prepare($sql);
+		$req->execute();
+
+		$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+		//on retourne le tableau de résultats
+		return $result;
+	}
+
+// Classement des joueurs : (#2)
+
+	function SelectUsersFromClassement_2(PDO $db){
+		$sql = ('SELECT username, xp FROM users ORDER BY xp DESC limit 1,1');
+
+		$req = $db->prepare($sql);
+		$req->execute();
+
+		$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+		//on retourne le tableau de résultats
+		return $result;
+	}
+
+// Classement des joueurs : (#3)
+
+	function SelectUsersFromClassement_3(PDO $db){
+		$sql = ('SELECT username, xp FROM users ORDER BY xp DESC limit 2,1');
+
+		$req = $db->prepare($sql);
+		$req->execute();
+
+		$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+		//on retourne le tableau de résultats
+		return $result;
+	}
+
+// Classement des joueurs : (top3)
+
+	function SelectUsersFromClassement_47(PDO $db){
+		$sql = ('SELECT username, xp FROM users ORDER BY xp DESC limit 3,46');
 
 		$req = $db->prepare($sql);
 		$req->execute();

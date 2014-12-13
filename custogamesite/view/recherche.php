@@ -1,6 +1,6 @@
 <div id="discover">
 	<div id="recherche">
-		<form>
+		<form action="search_action.php" method="get">
 			<h2>Recherche</h2>
 			<h3>Choix du niveau</h3><br>
 			<div class="row">
@@ -44,5 +44,11 @@
 		</form>
 	</div>
 	<!-- !recherche -->
+	<div class="container">
+
+
+
+
+	</div>
 </div>
 <!-- !discover -->
