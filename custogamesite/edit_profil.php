@@ -57,43 +57,49 @@ include 'view/_head.html';
 									'email' => $_POST['email'],					
 									'lycee' => $_POST['lycee'],
 									'classe' => $_POST['classe'],
-									'profil_complete' => 1,
+									'profil_complete' => '1',
 									)
 								);
 
 						
 						echo "Vous avez bien modifi&eacute; votre profil.";
 						// redirection profil
-						header('Location:profil.php');
+						$url = 'profil.php?username='.$_SESSION["username"];
+						header('Location:' .$url);
 						}
 						else
 						{
+							$url = 'profil.php?username='.$_SESSION["username"];
 							echo "Les mails ne correspondent pas";
-							header('Location:profil.php');
+							header('Location:' .$url);
 						}	
 					}
 					else
 					{
+						$url = 'profil.php?username='.$_SESSION["username"];
 						echo "Le mot de passe doit faire plus de 6 caractères";
-						header('Location:profil.php');
+						header('Location:' .$url);
 					}
 				}
 				else
 				{
+					$url = 'profil.php?username='.$_SESSION["username"];
 					echo "Les mots de passe ne correspondent pas";
-					header('Location:profil.php');
+					header('Location:' .$url);
 				}
 			}
 			else
 			{
+				$url = 'profil.php?username='.$_SESSION["username"];
 				echo "Remplissez tous les champs";
-				header('Location:profil.php');
+				header('Location:' .$url);
 			}
 		}
 		else
 		{
+			$url = 'profil.php?username='.$_SESSION["username"];
 			echo "Remplissez tous les champs correctement";
-			header('Location:profil.php');
+			header('Location:' .$url);
 		}
 	}
 

@@ -6,8 +6,11 @@
 							'id' => $_GET['id'],
 							)
 						);
+
+
 						while ($datas = $req->fetch())
-					{
+						{	
+
 	?>	
 	<div class="container" style="padding-left: 0px; padding-right: 0px;">
 		<div id="post_upload">
@@ -41,16 +44,28 @@
 					<!-- !infos_upload_content -->
 				</div>
 				<!-- !infos_upload -->
-
 			</div>
 			<!-- !vid_upload -->
 
 			
 	<?php
-					}
-					if ($datas['validation'] == 'nope' OR $datas['validation'] == 'En attente'){
-						header('Location:login.php');
-					}
+							}
+		$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+		$req->execute(
+			array(
+				'username' => $_SESSION['username']
+				)
+			);						
+			$request = $db->prepare('UPDATE users 
+									SET explorateur = :explorateur
+									WHERE username = :username');
+				
+			$request->execute(
+			array(
+				'explorateur' => '1',
+				'username' => $_SESSION['username'],
+				)
+			);							
 	?>		
 		</div>
 	</div>

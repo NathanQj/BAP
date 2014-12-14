@@ -100,11 +100,6 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 								Badges
 							</a>
 						</li>
-						<li>
-							<a href="#trophees" tabindex="-1" data-toggle="tab">
-								Trophées
-							</a>
-						</li>
 					</ul>
 				</li>
 			</ul>
@@ -257,7 +252,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 								?>
 							 <div class="col-md-3" style="background-color:#fff;">
 							 	<a href="video.php?id=<?php echo $datas['id'];?>">
-							 	<h3><?php echo $datas['title']; ?></h3>
+							 	<h3 style="color:#000;"><?php echo $datas['title']; ?></h3>
 								<img src="view/img/footer/picto_video.png">
 							 	<h4><?php echo $datas['auteur']; ?></h4>
 							 	</a>
@@ -272,18 +267,60 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 						</div>
 						<!-- !last_vids -->
 					</div>	
-				<?php } ?>
+				<?php }
+
+				$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+				$req->execute(
+					array(
+						'username' => $_GET['username']
+						)
+					);
+
+				while ($datas = $req->fetch(PDO::FETCH_ASSOC)){
+
+				 ?>
 				<div class="tab-pane fade badges" id="badges">
-				<p>jMeter is an Open Source testing software. It is 100% pure 
-				Java application for load and performance testing.</p>
+					<p>Badges débloqués :</p>
+					<div class="row">
+						<?php if($datas['profil_complete'] == '1'){ ?>
+							<div class="col-md-2">
+								<img src="view/img/badges/Home.png" alt="Remplir son profil"> <br>
+								<p>Profil complet</p>
+							</div>
+						<?php } ?>
+						<?php if($datas['fanfaron'] == '1'){ ?>
+							<div class="col-md-2">
+								<img src="view/img/badges/fanfaron.png" alt="Publier une vidéo - Bronze"> <br>
+								<p>Fanfaron</p>
+							</div>
+						<?php } ?>
+						<?php if($datas['informateur'] == '1'){ ?>
+							<div class="col-md-2">
+								<img src="view/img/badges/informateur.png" alt="Publier une vidéo - Argent"> <br>
+								<p>Informateur</p>
+							</div>
+						<?php } ?>
+						<?php if($datas['papa'] == '1'){ ?>
+							<div class="col-md-2">
+								<img src="view/img/badges/papa.png" alt="Publier une vidéo - Or"> <br>
+								<p>Papa</p>
+							</div>
+						<?php } ?>
+						<?php if($datas['explorateur'] == '1'){ ?>
+							<div class="col-md-2">
+								<img src="view/img/badges/explorateur.png" alt="Regarder une vidéo"> <br>
+								<p>Explorateur</p>
+							</div>
+						<?php } ?>
+						<?php if($datas['winner'] == '1'){ ?>
+							<div class="col-md-2">
+								<img src="view/img/badges/winner.png" alt="Être un custo winner"> <br>
+								<p>Custo Winner</p>
+							</div>	
+						<?php } ?>			
+					</div>
 				</div>
-				<div class="tab-pane fade trophees" id="trophees">
-				<p>Enterprise Java Beans (EJB) is a development architecture 
-					for building highly scalable and robust enterprise level    
-					applications to be deployed on J2EE compliant 
-					Application Server such as JBOSS, Web Logic etc.
-				</p>
-				</div>
+				<?php } ?>
 			</div>
 		</div>
 		<!-- myTabContent -->
@@ -317,9 +354,9 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 									{
 										if( $datas['validation'] == 'ok'){
 								?>
-							 <div class="col-md-3" style="background-color:#000;">
+							 <div class="col-md-3" style="background-color:#fff;">
 							 	<a href="video.php?id=<?php echo $datas['id'];?>">
-							 	<h3><?php echo $datas['title']; ?></h3>
+							 	<h3 style="color:#000;"><?php echo $datas['title']; ?></h3>
 								<img src="view/img/footer/picto_video.png">
 							 	<h4><?php echo $datas['auteur']; ?></h4>
 							 	</a>

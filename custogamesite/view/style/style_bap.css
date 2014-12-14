@@ -111,7 +111,7 @@
 		margin: auto 0;
 		color: #fff;
 	}
-	#last_vids_content{
+	#index #last_vids_content{
 		background-color: #fff;
 		width: 100%;
 		height: 238px;
@@ -159,6 +159,7 @@
 		background-color: #2d3e50;
 		padding: 0 15px 15px 15px;
 		margin: 25px auto;
+		overflow: auto !important;
 	}
 	#profil #profil_custuser #myTab a:hover{
 		background-color: #16a086;
@@ -275,15 +276,6 @@
 	#profil #myTabContent .unset{
 		border: none;
 	}
-	#profil .tab-pane{
-		height: 430px;
-	}
-	#profil .formulaire{
-		height: 620px;
-	}
-	#profil .badges, .trophees{
-		height: 200px;
-	}
 	#profil .fade {
 		display: none;
 		opacity: 0;
@@ -295,17 +287,24 @@
 		display: block;
 		opacity: 1;
 	}
-
+	#profil #badges{
+		padding-bottom: 10px;
+	}
+	#profil #badges img{
+		height: 128px;
+		padding: 0 20px;
+	}
 
 	#profil #last_vids_content{
 		background-color: #000;
 		width: 100%;
-		height: 226px;
 		overflow: auto;
+		color: #fff;
 	}
 
 	#profil #profil_picture{
 		width:80%;
+
 	}
 /************************************************/
 

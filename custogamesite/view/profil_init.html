@@ -1,4 +1,6 @@
 <?php 
+
+// Image de profil
 $req = $db->prepare('SELECT * FROM users WHERE username = :username ');
 $req->execute(
 	array(
@@ -43,4 +45,101 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 				)
 			);
 		}
+// Has uploaded
+$req = $db->prepare('SELECT validation, auteur FROM videos WHERE auteur = :auteur ORDER BY validation DESC LIMIT 0,1');
+$req->execute(
+	array(
+		'auteur' => $_GET['username'],
+		)
+	);
+
+	$datas = $req->fetch();
+			
+		if ($datas['validation'] != 'nope' OR $datas['validation'] != 'En cours'){
+			
+		
+		$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
+		$req->execute(
+			array(
+				'username' => $_GET['username']
+				)
+			);						
+			$request = $db->prepare('UPDATE users 
+									SET has_uploaded = :has_uploaded
+									WHERE username = :username');
+				
+			$request->execute(
+			array(
+				'has_uploaded' => '1',
+				'username' => $user_username,
+				)
+			);
+
+// Badge Fanfaron
+		if ($user_xp >= 100){
+			$request = $db->prepare('UPDATE users 
+									SET fanfaron = :fanfaron
+									WHERE username = :username');
+				
+			$request->execute(
+			array(
+				'fanfaron' => '1',
+				'username' => $user_username,
+				)
+			);
+		}
+	// Badge informateur 
+		if($user_xp >=250){
+			$request = $db->prepare('UPDATE users 
+									SET informateur = :informateur
+									WHERE username = :username');
+				
+			$request->execute(
+			array(
+				'informateur' => '1',
+				'username' => $user_username,
+				)
+			);			
+		}
+	// Badge papa
+		if($user_xp >=600){
+			$request = $db->prepare('UPDATE users 
+									SET papa = :papa
+									WHERE username = :username');
+				
+			$request->execute(
+			array(
+				'papa' => '1',
+				'username' => $user_username,
+				)
+			);			
+		}		
+	}
+
+
+// Badge Winner
+$req = $db->prepare('SELECT * FROM users WHERE username = :username');
+$req->execute(
+	array(
+		'username' => $_GET['username']
+		)
+	);
+
+while ($datas = $req->fetch(PDO::FETCH_ASSOC))
+{
+
+		if($datas['explorateur'] == '1' && $datas['fanfaron'] == '1' && $datas['profil_complete'] == '1' && $datas['informateur'] == '1' && $datas['papa'] == '1'){ 
+
+			$request = $db->prepare('UPDATE users 
+									SET winner = :winner
+									WHERE username = :username');
+				
+			$request->execute(
+			array(
+				'winner' => '1',
+				'username' => $user_username,
+				)
+			);
+		}
+	}
 ?>
