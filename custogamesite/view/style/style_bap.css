@@ -7,7 +7,7 @@
 /* HEADER */
 	#header{
 		width: 100%;
-		height: 250px;
+		min-height: 250px;
 		background-color: #fff;
 	}
 	#header #logo{
@@ -72,9 +72,11 @@
 		height: 55px;
 		text-align: center;
 		color: #fff;
-		padding-top: 20px;
 		background-color: #525a5c;
-
+		font-size: 2em;
+	}
+	#descri_vid_pres{	
+		padding-top: 7px;
 	}
 	#index .bluebox{
 			height: 55px;
@@ -87,10 +89,24 @@
 	}
 	#pitch_container{
 		margin-top: 30px;
+		background: #2d3e50;
 	}
+	#pitch_title{
+		padding-left: 0px; 
+		padding-right: 0px;
+	}
+
 	#pitch_title h2{
 		font-weight: 400;
 		color: #fff;
+	}
+	.pitch_sides{
+		height: 55px; 
+		padding-top: 0px; 
+		padding-right: 0px; 
+		padding-left: 0px; 
+		margin-top: 25px; 
+		background: #192938;
 	}
 	.pitch{
 		padding: 30px 22px;
@@ -114,25 +130,29 @@
 	#index #last_vids_content{
 		background-color: #fff;
 		width: 100%;
-		height: 238px;
+		height:;
 		overflow: auto;
 	}
 	#last_vids_content h3{
 		color: #000;
 	}
 	#index #last_vids_content .col-md-3{
-		padding:0px 0px 12px;
+		padding: 12px 5px 12px;
 	}
 		/***/ /* A toi de jouer */ /***/
 	#your_turn{
 		padding: 40px 0 60px;
 		margin:auto 0;
+		font-size: 2em;
 	}
 /************************************************/
 
-/* PROFIL */
+/* PROFIL foncé : #192938, clair :#2d3e50  */
 	#profil{
 		overflow: auto;
+		background-color: #2d3e50;
+		margin-top: -20px;
+		padding-top: 20px;
 	}
 	/***/ /* Classement */ /***/
 	#profil #profil_classement{
@@ -142,13 +162,13 @@
 		color: #fff;
 	}
 	#profil #profil_classement_title{
-		background-color: #2d3e50;
+		background-color: #192938;
 		padding: 5px 0 10px 0;
 		text-align:center;
 		border-radius: 20px 20px 0 0;
 	}
 	#profil #profil_classement_content{
-		background-color: #bec3c7;
+		background-color: #eaeaea;
 		padding: 15px 0 10px 0;
 		text-align:center;
 		border-radius: 0 0 20px 20px;
@@ -156,8 +176,8 @@
 	}
 		/***/ /* Bloc onglets+infos utilisateur */ /***/
 	#profil #profil_custuser{
-		background-color: #2d3e50;
-		padding: 0 15px 15px 15px;
+		background-color: #192938;
+		padding: 0 10px 10px;
 		margin: 25px auto;
 		overflow: auto !important;
 	}
@@ -173,9 +193,11 @@
 	}
 	#profil .col-md-6 h4{
 		font-size: 40px;
+		color: #fff;
 	}
 	#profil .col-md-6{
 		font-size: 2em !important; 
+		color: #fff;
 	}
 	#profil #profil_custuser .col-md-4{
 		text-align: center;
@@ -190,7 +212,7 @@
 	}
 		/***/ /* Bloc infos */ /***/
 	#profil #profil_infos_custuser{
-		background-color: #192938;
+		background-color: #2d3e50;
 		color: #fff;
 	}
 	#profil .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -240,21 +262,21 @@
 		color: #fff;
 	}
 	#profil .field_content{
-		background-color: #2d3e50;
+		background-color: #192938;
 		border: solid 1px #16a086;
 		margin-bottom: 20px;
 		padding: 6px 0;
 		color: #fff;
 	}
 	#profil .field_content input{
-		background-color: #2d3e50;
+		background-color: #192938;
 		color: #fff;
 		border: none;
 		text-align: center;
 		width: 100%;
 	}
 	#profil .valider{
-		background-color: #192938;
+		background-color: #2d3e50;
 		color: #25b6ae;
 		border:none;
 		width:100px;
@@ -375,6 +397,11 @@
 			border: 6px solid;
 			border-color: #fff; 
 		}
+		#vid_upload_content_form{
+			background-color: #2d3e50;
+			border: 6px solid;
+			border-color: #fff; 
+		}		
 	/***/ /* Upload infos vidéo */ /***/
 		#infos_upload{
 
@@ -420,6 +447,7 @@
 	#upload select{
 		color: #000;
 		margin-top: 20px;
+		max-width: 237px;
 	}
 	/***/ /* Post Upload */ /***/
 	#upload #post_upload{
@@ -466,8 +494,8 @@
 	#lots .photo_lot{
 	}
 	#lots .photo_lot img{
-		height: 400px;
-		width: 400px;
+		height: 350px;
+		width: 350px;
 		border: solid 1px #16a086;
 		border-radius: 500%;
 	}
@@ -612,6 +640,18 @@
 
 /************************************************/
 
+/* Savoir plus */
+	.savoir_plus{
+		background-color: #2d3e50;
+		color: #fff !important;
+		padding: 10px 0 60px;
+	}
+	.savoir_plus *{
+		color: #fff !important;
+	}
+	
+/************************************************/
+
 /* Spécifique */
 	.orange_div{
 		height: 55px;
@@ -628,50 +668,54 @@
 	}
 
 	/* Dropzone */
-	.uploadArea h1{ 
-		color:#ccc; 
-		width:100%; 
-		z-index:0; 
-		text-align:center; 
-		vertical-align:middle; 
-		position:absolute; 
-		top:25px;
-	}
-	.dfiles{ 
-		clear:both; 
-		border:1px solid #ccc; 
-		background-color:#E4E4E4; 
-		padding:3px; 
-		position:relative; 
-		height:25px; 
-		margin:3px; 
-		z-index:1; 
-		width:97%; 
-		opacity:0.6; 
-		cursor:default;
-	}
-	.invalid { 
-		border:1px solid red !important; 
-	}
-	.buttonUpload { 
-		display:inline-block; 
-		padding: 4px 10px 4px; 
-		text-align: center; 
-		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
-		background-color: #0074cc; 
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px; 
-		border-radius: 4px; 
-		border-color: #e6e6e6 #e6e6e6 #bfbfbf; 
-		border: 1px solid #cccccc; 
-		color:#fff; 
-	}
-	.progress img{ 
-		margin-top:7px; 
-		margin-left:24px; 
-	}
-	/* //dropzone */
+		.uploadArea h1{ 
+			color:#ccc; 
+			width:100%; 
+			z-index:0; 
+			text-align:center; 
+			vertical-align:middle; 
+			position:absolute; 
+			top:25px;
+		}
+		.dfiles{ 
+			clear:both; 
+			border:1px solid #ccc; 
+			background-color:#E4E4E4; 
+			padding:3px; 
+			position:relative; 
+			height:25px; 
+			margin:3px; 
+			z-index:1; 
+			width:97%; 
+			opacity:0.6; 
+			cursor:default;
+		}
+		.invalid { 
+			border:1px solid red !important; 
+		}
+		.buttonUpload { 
+			display:inline-block; 
+			padding: 4px 10px 4px; 
+			text-align: center; 
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
+			background-color: #0074cc; 
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px; 
+			border-radius: 4px; 
+			border-color: #e6e6e6 #e6e6e6 #bfbfbf; 
+			border: 1px solid #cccccc; 
+			color:#fff; 
+		}
+		.progress img{ 
+			margin-top:7px; 
+			margin-left:24px; 
+		}
+	/* //fin dropzone */
 
+	/* Dernières vidéos - individual */
+	#last_vids_content .col-md-3{
+		border: 1px solid #2d3e50;
+	}	
 	/* BackOffice */
 	#user_gestion #pic img{
 		width: 20% !important;

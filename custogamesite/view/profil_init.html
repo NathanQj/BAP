@@ -49,7 +49,7 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 $req = $db->prepare('SELECT validation, auteur FROM videos WHERE auteur = :auteur ORDER BY validation DESC LIMIT 0,1');
 $req->execute(
 	array(
-		'auteur' => $_GET['username'],
+		'auteur' => $_SESSION['username'],
 		)
 	);
 
@@ -61,7 +61,7 @@ $req->execute(
 		$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
 		$req->execute(
 			array(
-				'username' => $_GET['username']
+				'username' => $_SESSION['username']
 				)
 			);						
 			$request = $db->prepare('UPDATE users 
@@ -121,14 +121,14 @@ $req->execute(
 $req = $db->prepare('SELECT * FROM users WHERE username = :username');
 $req->execute(
 	array(
-		'username' => $_GET['username']
+		'username' => $_SESSION['username']
 		)
 	);
 
 while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 {
 
-		if($datas['explorateur'] == '1' && $datas['fanfaron'] == '1' && $datas['profil_complete'] == '1' && $datas['informateur'] == '1' && $datas['papa'] == '1'){ 
+		if($datas['explorateur'] == '1' && $datas['fanfaron'] == '1' && $datas['home'] == '1' && $datas['informateur'] == '1' && $datas['papa'] == '1'){ 
 
 			$request = $db->prepare('UPDATE users 
 									SET winner = :winner

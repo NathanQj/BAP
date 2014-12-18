@@ -22,7 +22,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 	$user_xp = $infos['xp'];
 	$user_has_uploaded = $infos['has_uploaded'];
 	$user_profil_complete = $infos['profil_complete'];
-	$user_picture = $infos['picture'];	
+	$user_picture = $infos['picture'];
 	?>
 <!-- PROFIL -->
 <div id="profil">
@@ -33,6 +33,9 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 			</div><!-- photo -->
 			<div class="col-md-6">
 				<h4><?php echo $user_username; ?></h4><br/>
+				<?php if($infos['winner'] == 1){ ?>
+					<p>Grade : Custo Winner</p>
+				<?php } ?>
 				<p> XP : <?php echo $user_xp; ?></p>
 			</div><!-- pseudo/lvl/experience -->
 			<div class="col-md-3">		
@@ -282,7 +285,7 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 				<div class="tab-pane fade badges" id="badges">
 					<p>Badges débloqués :</p>
 					<div class="row">
-						<?php if($datas['profil_complete'] == '1'){ ?>
+						<?php if($datas['home'] == '1'){ ?>
 							<div class="col-md-2">
 								<img src="view/img/badges/Home.png" alt="Remplir son profil"> <br>
 								<p>Profil complet</p>

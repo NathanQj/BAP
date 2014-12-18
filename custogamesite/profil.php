@@ -12,6 +12,8 @@ include 'view/_head.html';
 if (utilisateur_est_connecte()) 
 {
 $clsmnt = SelectUsersFromClassement($db);
+
+XpProfil($db);
 }
 else
 {
@@ -25,4 +27,3 @@ include 'view/_menu.php';
 include 'view/profil_init.html';
 include 'view/profil.html';
 include 'view/_footer.html';
-

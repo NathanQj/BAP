@@ -32,6 +32,25 @@
 			<h2>Infos sur la vidéo</h2>
 			<p id="titre_video">Titre : <?php echo $datas['title']; ?> </p><br/>
 			<p>Matière :<br/>	
+<?php 
+		$XpUpdate = $db->prepare('SELECT * FROM users 
+						 WHERE username = :username');
+			$XpUpdate->execute(
+		array(
+			'username' => $datas['auteur']
+			)
+		);
+
+
+		$xp_result = $XpUpdate->fetch(PDO::FETCH_ASSOC);
+
+		$has_uploaded_once_more = $xp_result['has_uploaded']+1;
+		$xp_after_upload = $xp_result['xp']+150;
+
+		echo $has_uploaded_once_more;?><- has uploaded<br> -> xp<?php
+		echo $xp_after_upload;
+ ?>
+
 			<?php echo $datas['category']; ?></p>
 			<br/>
 			<p>Classe :<br/>

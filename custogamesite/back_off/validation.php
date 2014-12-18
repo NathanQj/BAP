@@ -8,20 +8,25 @@ require('config/session.php');
 /******************************** 
       PROCESS 
 ********************************/
+if(user_is_admin()){
+	if(isset($_POST) && !empty($_POST)){
+		include 'view/uploads_gestion.html';
 
-if(isset($_POST) && !empty($_POST)){
-	include 'view/uploads_gestion.html';
+		$sql = "SELECT * FROM videos"; 
 
-	$req = $db->prepare('UPDATE videos 
-						 SET validation = :validation
-						 WHERE id = :id');
-	$req->execute(array(
-		'validation' => $_POST['validation'],
-		'id' => $_GET['id'],
-	));
+		$request = $db->prepare($sql); 
+		$request->execute(); 
 
-	if($_POST['validation'] == 'ok'){
-				
-	}
-	header('Location: uploads_gestion.php');
+		$result = $request->fetchAll(PDO::FETCH_ASSOC);
+
+		$req = $db->prepare('UPDATE videos 
+							 SET validation = :validation
+							 WHERE id = :id');
+		$req->execute(array(
+			'validation' => $_POST['validation'],
+			'id' => $_GET['id'],
+		));
+
+		}
+		header('Location: uploads_gestion.php');
 }

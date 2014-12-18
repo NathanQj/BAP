@@ -46,8 +46,10 @@ include 'view/_head.html';
 															email = :email, 
 															lycee = :lycee, 
 															classe = :classe,
-															profil_complete = :profil_complete
+															home = :home
 																WHERE username = :username');
+
+							$datas = $request->fetch();
 							$request->execute(
 								array(
 									'first_name' => $_POST['first_name'],
@@ -57,11 +59,10 @@ include 'view/_head.html';
 									'email' => $_POST['email'],					
 									'lycee' => $_POST['lycee'],
 									'classe' => $_POST['classe'],
-									'profil_complete' => '1',
+									'home' => 1,
 									)
 								);
 
-						
 						echo "Vous avez bien modifi&eacute; votre profil.";
 						// redirection profil
 						$url = 'profil.php?username='.$_SESSION["username"];
@@ -110,4 +111,3 @@ include 'view/_head.html';
 include 'view/_menu.php';
 include 'view/edit_profil.html';
 include 'view/_footer.html';
-

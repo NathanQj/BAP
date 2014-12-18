@@ -3,7 +3,9 @@
 			<img src="view/img/logo.png" id="logo" alt='logo'>
 			<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
 			<?php 
-				if(isset($_SESSION['username']) && !empty($_SESSION['username'])){?> 
+
+				if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
+			?> 
 			<div  class="disconnect">
 				<a href="profil.php?username=<?php  echo $_SESSION['username']; ?>"><?php  echo $_SESSION['username']; ?></a>
 				<br/>
@@ -13,8 +15,7 @@
 		</div><!-- !#header -->
 	</a>
 	<nav id="menu">
-		<ul>
-			<a href="index.php"><li>Accueil</li></a>
+		<ul>			
 			<?php if (utilisateur_est_connecte()) { 
 
 				$req = $db->prepare('SELECT * FROM users WHERE username = :username ');
@@ -26,6 +27,7 @@
 					while ($datas = $req->fetch())
 				{ 
 				?>
+			<a href="index.php"><li>Accueil</li></a>
 			<a href="profil.php?username=<?php echo $datas['username']; ?>"><li>Profil</li></a>
 			<a href="upload.php"><li>Publier une vidéo</li></a>
 			<?php 
