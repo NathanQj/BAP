@@ -65,17 +65,18 @@
 			</div>
 				<div class="connexion">
 					<div class="inscrit">
-						<span>Vous avez deja un compte ? <strong> Connectez-vous.</strong></span>
-						<form action="login.php" method="post">
-							<div class="error">Email ou mot de passe érroné</div>
-
-					
+						<span>Vous avez deja un compte ? <strong> Connectez-vous.</strong></span>					
 						<form action="index.php" method="post">
-							<div class="error">Email ou mot de passe érroné </div>
+							<?php if(isset($_GET['error']) && ($_GET['error']) == 'user_ou_mdp_incorrects'){ ?>
+								<p style="color:red;">Pseudo ou mot de passe incorrect</p>
+							<?php } ?> 
 
 							<input type="text" name="username" placeholder="Pseudo"><br/>
 							<input type="password" name="password" placeholder="Password"><br/>
 							<input type="submit" value="Connexion" />
+							<?php if(isset($_GET['info']) && ($_GET['info']) == 'inscrit_avec_succes'){ ?>
+								<br><br><strong style="color:#50C144;">Inscrit ! Vous pouvez vous connecter</strong>
+							<?php } ?> 
 						</form>
 					</div>
 					<div class="pas-inscrit">
@@ -86,20 +87,36 @@
 						<div class="trait"><span>OU</span></div>
 						<span> Cr&eacute;ez un compte avec votre adresse email</span>
 						<form action="register.php" method="post">
-							<div class="error2">Informations fausse ou adresse email d&eacute;j&agrave; utilis&eacute;</div>
 							<p class="p_form_register">Pseudo :</p>
 							<input type="text" name="username" placeholder="Pseudo"><br/>
 							<p class="p_form_register">Prénom & Nom :</p>
 							<input type="text" name="first_name" placeholder="Prénom" style="margin-right: 10px;"><input type="text" name="last_name" placeholder="Nom"><br/>
-							<p class="p_form_register">Mot de Passe & Confirmation :</p>
-							<input type="password" name="password" placeholder="Mot de Passe" style="margin-right: 6px;">
-							<input type="password" name="passverif" placeholder="Confirmation">
-							<br>
 							<p class="p_form_register">E-mail & Confirmation :</p>
 							<input type="mail" name="email" placeholder="E-mail" style="margin-right: 6px;">
 							<input type="mail" name="mailverif" placeholder="Confirmation">
+							<br>
+							<p class="p_form_register">Mot de Passe & Confirmation : (6 caractères minimum)</p>
+							<input type="password" name="password" placeholder="Mot de Passe" style="margin-right: 6px;">
+							<input type="password" name="passverif" placeholder="Confirmation">
 							<p id="p_cgu_login">En cliquant sur Inscription, vous acceptez nos <a href="cgu.php">CGU</a>.</p>
 							<input type="submit" value="Inscription">
+							<br>
+							<?php if(isset($_GET['error']) && ($_GET['error']) == 'emails_differents'){ ?>
+								<p style="color:red;">Les adresses mail sont différentes</p>
+							<?php } ?> 
+							<?php if(isset($_GET['error']) && ($_GET['error']) == 'pass_differents'){ ?>
+								<p style="color:red;">Les mots de passe sont différents</p>
+							<?php } ?>
+							<?php if(isset($_GET['error']) && ($_GET['error']) == 'pass_too_short'){ ?>
+								<p style="color:red;">Le mot de passe doit faire au moins 6 caractères</p>
+							<?php } ?>	
+							<?php if(isset($_GET['error']) && ($_GET['error']) == 'format_email'){ ?>
+								<p style="color:red;">L'adresse mail n'est pas correcte</p>
+							<?php } ?>												
+							<?php if(isset($_GET['error']) && ($_GET['error']) == 'champs_manquants'){ ?>
+								<p style="color:red;">Remplissez tous les champs correctement</p>
+							<?php } ?>	
+							<br>
 						</form>
 					</div>
 				</div>

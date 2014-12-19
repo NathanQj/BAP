@@ -30,10 +30,11 @@ while ($datas = $req->fetch(PDO::FETCH_ASSOC))
 			$user_picture = 'view/img/profiles/silver.png' ;
 		}elseif ($user_xp >= 600 && $user_xp <= 999) {
 			$user_picture = 'view/img/profiles/gold.png';
-		}elseif ($user_xp >= 1000) {
+		}elseif ($user_xp >= 1000 && $user_xp <= 1999) {
 			$user_picture = 'view/img/profiles/diam.png';
+		}elseif ($user_xp >= 2000) {
+			$user_picture = 'view/img/profiles/killer.png';
 		}
-
 
 		$request = $db->prepare('UPDATE users 
 		SET picture = :picture WHERE username = :username');

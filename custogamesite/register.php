@@ -58,36 +58,36 @@ if (!utilisateur_est_connecte()){
 						
 						echo "Vous avez bien &eacute;t&eacute; inscrit. Vous pouvez dor&eacute;navant vous connecter.";
 						// redirection login
-						header('Location:profil.php');
+						header('Location:index.php?info=inscrit_avec_succes');
 						}
 						else
 						{
 							echo "Les mails ne correspondent pas";
-							header('Location:index.php');
+							header('Location:index.php?error=emails_differents');
 						}	
 					}
 					else
 					{
 						echo "Le mot de passe doit faire plus de 6 caractères";
-						header('Location:index.php');
+						header('Location:index.php?error=pass_too_short');
 					}
 				}
 				else
 				{
 					echo "Les mots de passe ne correspondent pas";
-					header('Location:index.php');
+					header('Location:index.php?error=pass_differents');
 				}
 			}
 			else
 			{
 				echo "Remplissez tous les champs";
-				header('Location:index.php');
+				header('Location:index.php?error=champs_manquants');
 			}
 		}
 		else
 		{
 			echo "Remplissez tous les champs correctement";
-			header('Location:index.php');
+			header('Location:index.php?error=format_email');
 		}
 	}
 }

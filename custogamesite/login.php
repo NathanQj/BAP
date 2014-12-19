@@ -40,11 +40,14 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 			// redirection page d'accueil
 			header('Location:index.php');
 		}
+		else
+		{
+			header('Location:index.php?error=user_ou_mdp_incorrects');
+		}
 
 	}
 	// fin du while
 }
-
 /******************************** 
 			VIEW 
 ********************************/

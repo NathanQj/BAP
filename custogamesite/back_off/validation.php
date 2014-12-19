@@ -27,6 +27,6 @@ if(user_is_admin()){
 			'id' => $_GET['id'],
 		));
 
-		}
-		header('Location: uploads_gestion.php');
+	}
+	header('Location: uploads_gestion.php');
 }

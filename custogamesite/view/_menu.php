@@ -1,18 +1,26 @@
 	<a href="index.php">
-		<div id="header">
-			<img src="view/img/logo.png" id="logo" alt='logo'>
-			<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
-			<?php 
+		<div class="row">
+			<div id="header">
+				<div class="col-md-2 col-xs-6">
+					<img src="view/img/logo.png" id="logo" alt='logo'>
+				</div>
+				<div class="col-md-8 hidden-xs">
+					<img src="view/img/header/custogame.png" id="custogame" alt="custogame">
+				</div>
+				<div class="col-md-2 col-xs-6">
+					<?php 
 
-				if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
-			?> 
-			<div  class="disconnect">
-				<a href="profil.php?username=<?php  echo $_SESSION['username']; ?>"><?php  echo $_SESSION['username']; ?></a>
-				<br/>
-				<a href="logout.php">Déconnexion</a>
-			</div>
-			<?php }?>
-		</div><!-- !#header -->
+						if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
+					?> 
+					<div  class="disconnect">
+						<a href="profil.php?username=<?php  echo $_SESSION['username']; ?>"><?php  echo $_SESSION['username']; ?></a>
+						<br/>
+						<a href="logout.php">Déconnexion</a>
+					</div>
+					<?php }?>
+				</div>
+			</div><!-- !#header -->
+		</div>
 	</a>
 	<nav id="menu">
 		<ul>			

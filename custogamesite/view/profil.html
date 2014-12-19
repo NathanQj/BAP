@@ -356,7 +356,24 @@ while ($infos = $req->fetch(PDO::FETCH_ASSOC))
 										while ($datas = $req->fetch())
 									{
 										if( $datas['validation'] == 'ok'){
-								?>
+
+							  // Nombre de caractère
+							  $max=18;
+							  if(strlen($datas['title'])>=$max)
+							  {
+							  // Met la portion de chaine dans $datas['title']
+							  $datas['title']=substr($datas['title'],0,$max); 
+							  // position du dernier espace
+							  $espace=strrpos($datas['title']," "); 
+							  // test si il ya un espace
+							  if($espace)
+							  // si ya 1 espace, coupe de nouveau la chaine
+							  $datas['title']=substr($datas['title'],0,$espace);
+							  // Ajoute ... à la chaine
+							  $datas['title'] .= '...';
+							  }
+
+							?>								
 							 <div class="col-md-3" style="background-color:#fff;">
 							 	<a href="video.php?id=<?php echo $datas['id'];?>">
 							 	<h3 style="color:#000;"><?php echo $datas['title']; ?></h3>

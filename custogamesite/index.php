@@ -47,13 +47,14 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 			// redirection page d'accueil
 			header('Location:index.php');
 		}
+		else
+		{
+			header('Location:index.php?error=user_ou_mdp_incorrects');
+		}		
 	}
 
 	$request->closeCursor();
-
-	// if : username ou pass incorrect
-	echo 'Pseudo et/ou mot de passe incorrects';
-	header('Location:index.php');
+	header('Location:index.php?error=user_ou_mdp_incorrects');
 }
 
 /******************************** 
