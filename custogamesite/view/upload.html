@@ -8,7 +8,7 @@
 			</div>
 
 			<div id="vid_upload_content_form">
-				<form method="POST" action="upload.php" enctype="multipart/form-data" name="demoFiler" id="demoFiler">
+				<form method="POST" action="upload.php" enctype="multipart/form-data">
 					<input type="file" name="custo" id="multiUpload" multiple style="height:40px;"/>
 					<input type="hidden" name="MAX_FILE_SIZE" value="25000000000">
 					<div class="progressBar">
@@ -73,9 +73,15 @@
 							<!-- !col-md-9 -->
 						</div>
 						<!-- !row -->
+						<div class="row">
+							<div class="col-md-3">
+								<p>Vignette :</p>
+								<input type="file" name="thumbnail"/>
+							</div>
+						</div>
 					</div>
 					<!-- !infos_upload_content -->						
-				<input type='submit' name="envoyer" value=' '>
+				<input type='submit' name="envoyer" value=''><br><p>Envoyer</p></input>
 			</div>
 			</form>
 

@@ -4,7 +4,6 @@
 ********************************/
 require('config/config.php');
 require('config/session.php');
-
 /******************************** 
 			PROCESS 
 ********************************/
@@ -33,8 +32,9 @@ if (isset($_POST['username']) && !empty($_POST['username'])
 
 	$request->execute(
 		array(
-			'username' => $_POST['username'])
-		);		
+			'username' => $_POST['username']
+		)
+	);		
 
 	
 	while ($data = $request->fetch()){

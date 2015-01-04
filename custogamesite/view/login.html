@@ -83,7 +83,12 @@
 						<p>Inscrivez-vous, c'est gratuit.</p><br/>
 						<p class="inscription">Rejoignez CUSTORIAL, cela vous prendra moins de 2 minutes pour ouvrir un compte.</p><br/>
 						<!-- fb connect -->
-						<img src="ressources/images/facebook.png" onclick="Login()" style="width: 100%; margin: 10px 0 18px 0;  cursor: pointer;">
+						<div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
+						<script>
+						  FB.Event.subscribe("auth.login", function () {
+						      window.location.replace("http://adresse/de/redirection");
+						  });
+						</script>		
 						<div class="trait"><span>OU</span></div>
 						<span> Cr&eacute;ez un compte avec votre adresse email</span>
 						<form action="register.php" method="post">

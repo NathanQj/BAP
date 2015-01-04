@@ -41,11 +41,11 @@
 			<?php 
 				}
 			}else{ ?>
-			<a href="register.php"><li>Inscription</li></a>
+			<a href="index.php"><li>Inscription</li></a>
 			<a href="login.php"><li>Se connecter</li></a>
 			<?php } ?>
-			<a href="lots.php"><li>Lots</li></a>
-			<a href="discover.php"><li>Decouvrir</li></a>
+			<a href="lots.php"><li>Rewards</li></a>
+			<a href="discover.php"><li>Découvrir</li></a>
 			<a href="contact.php"><li>Contact</li></a>
 			<?php if(user_is_admin()){ ?>
 			<a href="back_off"><li>Accès au back office</li></a>		

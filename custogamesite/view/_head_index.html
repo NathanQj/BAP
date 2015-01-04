@@ -27,35 +27,52 @@
 
 		<title>CustoGame Site</title>
 
-<script>
-	$(document).ready(function(){
-		$('#msgMail').hide();
-		$('#envoyerOubliMail1').click(function(){
-			if($('#youremail').val().length==0)
-				return;
-			$.ajax({
-				type:'POST',
-			    url:'modules/login/action/retrievepwd.php',
-			    data: {email:$('#youremail').val()},
-			    error: function()
-			    {
-			        //file not exists
-			    },
-			    success: function()
-			    {
-			    	$('#msgMail').show();
-			    	setTimeout(function(){
-			    		$('#fermeture').trigger("click");
-			    		$('#formMail').show();
-			    		$('#msgMail').hide();
-			    	},2000);
-			    }
-			});
-		});
-		
-		
-	});
-</script>
-
+  <script>
+  	$(document).ready(function(){
+  		$('#msgMail').hide();
+  		$('#envoyerOubliMail1').click(function(){
+  			if($('#youremail').val().length==0)
+  				return;
+  			$.ajax({
+  				type:'POST',
+  			    url:'modules/login/action/retrievepwd.php',
+  			    data: {email:$('#youremail').val()},
+  			    error: function()
+  			    {
+  			        //file not exists
+  			    },
+  			    success: function()
+  			    {
+  			    	$('#msgMail').show();
+  			    	setTimeout(function(){
+  			    		$('#fermeture').trigger("click");
+  			    		$('#formMail').show();
+  			    		$('#msgMail').hide();
+  			    	},2000);
+  			    }
+  			});
+  		});
+  		
+  		
+  	});
+  </script>
 </head>
 <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1013798495313398',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="fb-root"></div>

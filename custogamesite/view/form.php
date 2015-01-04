@@ -13,7 +13,7 @@ if(isset($_POST['submit'])) {
 	if(trim($_POST['subject']) == '') {
 		$hasError = true;
 	} else {
-		$subject = 'alexandre-naudascher.fr  ---  '. trim($_POST['subject']);
+		$subject = 'Custorial machin  ---  '. trim($_POST['subject']);
 	}
 
 	//Check to make sure sure that a valid email address is submitted
@@ -38,9 +38,9 @@ if(isset($_POST['submit'])) {
 
 	//If there is no error, send the email
 	if(!isset($hasError)) {
-		$emailTo = 'alex_nauda@hotmail.fr'; // Mettez votre adresse e-mail ici
+		$emailTo = 'satan-star@hotmail.fr'; // Mettez votre adresse e-mail ici
 		$body = "Nom: $name \n\nEmail: $email  \n\nSujet: $subject \n\nMessage:\n\n $comments";
-		$headers = 'From: alexandre-naudascher.fr <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
+		$headers = 'From: custorial.com <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
 
 		mail($emailTo, $subject, $body, $headers);
 		$emailSent = true;

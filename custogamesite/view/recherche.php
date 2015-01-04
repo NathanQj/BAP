@@ -45,10 +45,29 @@
 	</div>
 	<!-- !recherche -->
 	<div class="container">
-
-
-
-
+		<div class="row">
+		<?php
+			$req = $db->prepare('SELECT * FROM videos WHERE category = :category');
+			$req->execute(
+				array(
+					'category' => $_GET['vid_category'],
+					)
+				);
+				while ($datas = $req->fetch())
+			{
+				if($datas['validation'] == 'ok'){
+		?>
+	 <div class="col-md-3" style="background-color:#fff;">
+	 	<a href="video.php?id=<?php echo $datas['id'];?>">
+	 	<h3 style="color:#000;"><?php echo $datas['title']; ?></h3>
+		<img src="view/img/footer/picto_video.png">
+	 	<h4><?php echo $datas['auteur']; ?></h4>
+	 	</a>
+	 </div>
+	<?php
+				}
+			}
+	?></div>
 	</div>
 </div>
 <!-- !discover -->

@@ -35,7 +35,14 @@
 							<!-- !col-md-3 -->
 							<div class="col-md-9">
 								<p>Description :<br/>
-								<?php echo $datas['description']; ?></p>
+								<?php echo $datas['description']; ?></p><br>
+								<div
+								  class="fb-like"
+								  data-share="true"
+								  data-width="450"
+								  data-show-faces="true">
+								</div><br>
+								<a href="http://custorial.com/report.php" onclick="window.open('','popup','width=400,height=400,top=0,left=0,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0')" target="popup">Signaler la vidéo</a>
 							</div>
 							<!-- !col-md-9 -->
 						</div>
@@ -58,14 +65,17 @@
 			array(
 				'username' => $_SESSION['username']
 				)
-			);						
+			);	
+
+			$datas = $req->fetch();
+
 			$request = $db->prepare('UPDATE users 
 									SET explorateur = :explorateur
 									WHERE username = :username');
 				
 			$request->execute(
 			array(
-				'explorateur' => '1',
+				'explorateur' => $datas['explorateur']+1,
 				'username' => $_SESSION['username'],
 				)
 			);

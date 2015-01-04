@@ -7,7 +7,7 @@
 /* HEADER */
 	#header{
 		width: 100%;
-		min-height: 250px;
+		min-height: 190px;
 		background-color: #fff;
 	}
 	#header #logo{
@@ -78,7 +78,7 @@
 		height: 55px;
 		text-align: center;
 		color: #fff;
-		background-color: #525a5c;
+		background-color: #1a2938;
 		font-size: 2em;
 	}
 	#descri_vid_pres{	
